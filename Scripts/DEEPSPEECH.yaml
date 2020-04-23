@@ -1,0 +1,30 @@
+## Usage: ansible-playbook -i $HOST, Scripts/DEEPSPEECH.yaml -e DeepSpeech_version="tags/v0.5.1" --ask-become --ask-pass
+
+- name: Clone DeepSpeech and Build
+  hosts: all
+  gather_facts: False
+  become: True
+
+  vars:
+    DeepSpeech_version: "tags/v0.5.1"
+
+  tasks:
+    - name: Clone Mozilla/DeepSpeech and Checkout to tag {{ DeepSpeech_version }}
+      git:
+        repo: "https://github.com/mozilla/DeepSpeech.git"
+        dest: /srv/DeepSpeech
+        version: "{{ DeepSpeech_version }}"
+        force: yes
+
+    - name: Git Pull LFS Files
+      shell: "git-lfs pull"
+      args:
+        chdir: "/srv/DeepSpeech"
+
+    - name: Install Python3 dependencies
+      shell: "pip3 install -r requirements.txt"
+      args:
+        chdir: "/srv/DeepSpeech"
+
+    - name: Create a symlink for python to use python3.6
+      shell: "ln -sf /usr/bin/python3.6 /usr/bin/python"

@@ -1,0 +1,35 @@
+## This play is required on my system, because I do not have the support of AVX
+## No more needed, we are building our own tensorflow version
+### Before using this playbook, please try to use the one built.
+
+- name: Download and Install a specific version of Tensorflow
+  hosts: all
+  gather_facts: False
+  become: True
+
+  vars:
+    tensorflow_version: "r1.13"
+
+  tasks:
+    - block:
+        ## TODO : remove the next 2 steps and compile tensorflow ourself
+        ## These steps are required with my setup
+        # The list of prepackage whl : https://github.com/yaroslavvb/tensorflow-community-wheels/issues
+        - name: Download a working tensorflow 1.13.1 version (For my setup)
+          copy:
+            src: ../src/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
+            dest: /tmp
+
+        # I have to do that, because my server is too old, NO AVX, NO SSE, ...
+        # https://github.com/yaroslavvb/tensorflow-community-wheels/issues/111
+        # https://github.com/yaroslavvb/tensorflow-community-wheels/issues/103
+        - name: Install tensorflow 1.13.1
+          shell: |
+            pip3 uninstall -y tensorflow
+            pip3 install /tmp/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
+      when: "'r1.13' in tensorflow_version"
+
+    - block:
+        - debug:
+            msg: "Youm must build tensorflow 1.15 for your system."
+      when: "'r1.15' in tensorflow_version"

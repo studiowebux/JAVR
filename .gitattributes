@@ -1,0 +1,5 @@
+src/kenlm.tar filter=lfs diff=lfs merge=lfs -text
+src/sox-14.4.2.tar filter=lfs diff=lfs merge=lfs -text
+src/swig-4.0.0.tar filter=lfs diff=lfs merge=lfs -text
+src/bazel_0.19.1-linux-x86_64.deb filter=lfs diff=lfs merge=lfs -text
+src/bazel_0.24.1-linux-x86_64.deb filter=lfs diff=lfs merge=lfs -text

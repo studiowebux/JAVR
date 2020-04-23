@@ -1,0 +1,19 @@
+## Usage: ansible-playbook -i $HOST, Scripts/Test.yaml --ask-become --ask-pass
+
+- name: Test the deepspeech installation
+  hosts: all
+  gather_facts: False
+  become: True
+
+  tasks:
+    - name: Collect versions
+      shell: "deepspeech --version"
+
+    - name: Test the deepspeech installation
+      shell: "./bin/run-ldc93s1.sh"
+      args:
+        chdir: "/srv/DeepSpeech"
+      register: deepspeech_result
+
+    - debug:
+        msg: "{{ deepspeech_result.stdout_lines }}"

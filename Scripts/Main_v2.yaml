@@ -1,0 +1,21 @@
+- name: Install Deepspeech v0.7.0-alpha.3
+  hosts: all
+  gather_facts: False
+  become: true
+
+  vars:
+    tensorflow_version: "r1.15"
+    DeepSpeech_version: "tags/v0.7.0-alpha.3"
+    bazel_version: "0.24.1"
+
+- import_playbook: Install.yaml
+- import_playbook: SOX.yaml
+- import_playbook: KENLM.yaml
+- import_playbook: SWIG.yaml
+- import_playbook: BAZEL.yaml
+- import_playbook: DEEPSPEECH.yaml
+- import_playbook: TENSORFLOW.yaml
+- import_playbook: TS_DEEPSPEECH.yaml
+## (Optional/depends your system) ##
+# - import_playbook: FIX_TENSORFLOW.yaml
+- import_playbook: Test.yaml

@@ -1,0 +1,17 @@
+# You should update the answers below according to your setup
+- name: Configure tensorflow
+  expect:
+    chdir: "/srv/tensorflow"
+    command: "./configure"
+    echo: yes
+    responses:
+      (.*)Please specify the location of python(.*): ""
+      (.*)Please input the desired Python library path to use(.*): ""
+      (.*)Do you wish to build TensorFlow with XLA JIT support(.*): "n"
+      (.*)Do you wish to build TensorFlow with OpenCL SYCL support(.*): "n"
+      (.*)Do you wish to build TensorFlow with ROCm support(.*): "n"
+      (.*)Do you wish to build TensorFlow with CUDA support(.*): "n"
+      (.*)Do you wish to download a fresh release of clang(.*): "n"
+      (.*)Do you wish to build TensorFlow with MPI support(.*): "n"
+      (.*)Please specify optimization flags to use during compilation when bazel option(.*): "n"
+      (.*)Would you like to interactively configure(.*): "n"

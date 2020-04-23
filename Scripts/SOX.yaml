@@ -1,0 +1,39 @@
+## Usage: ansible-playbook -i $HOST, Scripts/SOX.yaml --ask-become --ask-pass
+
+- name: Copy, Unarchive and Build SOX
+  hosts: all
+  gather_facts: False
+  become: True
+
+  tasks:
+    - name: Check if SOX is installed
+      shell: "sox --version"
+      register: sox_installed
+      ignore_errors: true
+
+    - block:
+        - name: Remove /srv/sox-14.4.2/
+          file:
+            path: /srv/sox-14.4.2/
+            state: absent
+
+        # https://pilotfiber.dl.sourceforge.net/project/sox/sox/14.4.2/sox-14.4.2.tar.gz
+        - name: Copy and Extract SOX to /srv/sox-14.4.2/
+          unarchive:
+            src: ../src/sox-14.4.2.tar
+            dest: "/srv/"
+
+        - name: Build SOX
+          shell: |
+            ./configure
+            make clean
+            make uninstall
+            make -s && make install
+          args:
+            chdir: "/srv/sox-14.4.2"
+
+        - name: Remove SOX /srv/sox-14.4.2
+          file:
+            path: /srv/sox-14.4.2/
+            state: absent
+      when: sox_installed.rc != 0

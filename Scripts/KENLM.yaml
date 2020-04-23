@@ -1,0 +1,38 @@
+## Usage: ansible-playbook -i $HOST, Scripts/KENLM.yaml -e cores=8 --ask-become --ask-pass
+
+- name: Copy, Unarchive and Build KENLM
+  hosts: all
+  gather_facts: False
+  become: True
+
+  vars:
+    cores: 8
+
+  tasks:
+    - name: Check if KENLM is installed
+      shell: "kenlm_benchmark"
+      register: kenlm_installed
+      ignore_errors: true
+
+    - block:
+        - name: Remove /srv/kenlm/
+          file:
+            path: /srv/kenlm/
+            state: absent
+
+        # https://kheafield.com/code/kenlm.tar.gz
+        - name: Copy and Extract KENLM
+          unarchive:
+            src: ../src/kenlm.tar
+            dest: "/srv/"
+
+        - name: Build KENLM
+          shell: |
+            mkdir -p build
+            cd build
+            cmake ..
+            make -j {{ cores}}
+            make install
+          args:
+            chdir: "/srv/kenlm"
+      when: kenlm_installed.rc != 0

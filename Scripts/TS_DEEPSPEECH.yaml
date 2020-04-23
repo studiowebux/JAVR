@@ -1,0 +1,53 @@
+## Usage: ansible-playbook -i $HOST, Scripts/TS_DEEPSPEECH.yaml -e cores=12 --ask-become --ask-pass
+
+- name: Build DeepSpeech/native_client/ binaries
+  hosts: all
+  gather_facts: False
+  become: True
+
+  vars:
+    cores: 12
+
+  tasks:
+    - name: Build native_client/
+      shell: |
+        make deepspeech
+        make install
+        ldconfig # Reload the libraries
+      environment:
+        TFDIR: /srv/tensorflow
+        PREFIX: /usr/local
+      args:
+        chdir: /srv/DeepSpeech/native_client/
+
+    - name: Build native_client/javascript
+      shell: |
+        make build
+        make npm-pack
+      args:
+        chdir: /srv/DeepSpeech/native_client/javascript
+
+    # You should not change the deepspeech version
+    # If you have done this, you have to install the specific package manually ...
+    - name: Build native_client/python
+      shell: |
+        make bindings
+        pip3 install dist/deepspeech*
+      args:
+        chdir: /srv/DeepSpeech/native_client/python
+
+    - name: Build native_client/ctcdecode
+      shell: |
+        make bindings NUM_PROCESSES={{ cores }}
+      args:
+        chdir: /srv/DeepSpeech/native_client/ctcdecode
+
+    - name: Install ctcdecode
+      shell: "pip3 install dist/*.whl"
+      args:
+        chdir: /srv/DeepSpeech/native_client/ctcdecode
+
+    # there is a bug that causes to upgrade the numpy 
+    # version to the latest version (occured with DeepSpeech 0.5.1)
+    - name: Upgrade Numpy
+      shell: "pip3 install --upgrade numpy"

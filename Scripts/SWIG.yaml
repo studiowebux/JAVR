@@ -1,0 +1,39 @@
+## Usage: ansible-playbook -i $HOST, Scripts/SWIG.yaml --ask-become --ask-pass
+
+- name: Copy, Unarchive and Build SWIG
+  hosts: all
+  gather_facts: False
+  become: True
+
+  tasks:
+    - name: Check if SWIG is installed
+      shell: "swig -version"
+      register: swig_installed
+      ignore_errors: true
+
+    - block:
+        - name: Remove /srv/swig-4.0.0
+          file:
+            path: /srv/swig-4.0.0
+            state: absent
+
+        # https://pilotfiber.dl.sourceforge.net/project/swig/swig/swig-4.0.0/swig-4.0.0.tar.gz
+        - name: Copy and Extract SWIG 4.0.0
+          unarchive:
+            src: ../src/swig-4.0.0.tar
+            dest: "/srv/"
+
+        - name: Build SWIG
+          shell: |
+            ./configure
+            make clean
+            make uninstall
+            make && make install
+          args:
+            chdir: "/srv/swig-4.0.0"
+
+        - name: Remove /srv/swig-4.0.0
+          file:
+            path: /srv/swig-4.0.0
+            state: absent
+      when: swig_installed.rc != 0
