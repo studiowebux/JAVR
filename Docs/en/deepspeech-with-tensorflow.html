@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Deepspeech avec Tensorflow</title>
+    <title>Deepspeech with Tensorflow</title>
 
     <style>
             :root{--color-primary: #206ea7;--color-primary-light: rgba(32,110,167,0.15);--color-page: #206ea7;--color-page-draft: #7e50b1;--color-chapter: #af4d0d;--color-book: #077b70;--color-bookshelf: #a94747}.m-none{margin:0 !important}.mx-none{margin-inline-start:0 !important;margin-inline-end:0 !important}.my-none{margin-top:0 !important;margin-bottom:0 !important}.mt-none{margin-top:0 !important}.mr-none{margin-inline-end:0 !important}.mb-none{margin-bottom:0 !important}.ml-none{margin-inline-start:0 !important}.m-xxs{margin:3px !important}.mx-xxs{margin-inline-start:3px !important;margin-inline-end:3px !important}.my-xxs{margin-top:3px !important;margin-bottom:3px !important}.mt-xxs{margin-top:3px !important}.mr-xxs{margin-inline-end:3px !important}.mb-xxs{margin-bottom:3px !important}.ml-xxs{margin-inline-start:3px !important}.m-xs{margin:6px !important}.mx-xs{margin-inline-start:6px !important;margin-inline-end:6px !important}.my-xs{margin-top:6px !important;margin-bottom:6px !important}.mt-xs{margin-top:6px !important}.mr-xs{margin-inline-end:6px !important}.mb-xs{margin-bottom:6px !important}.ml-xs{margin-inline-start:6px !important}.m-s{margin:12px !important}.mx-s{margin-inline-start:12px !important;margin-inline-end:12px !important}.my-s{margin-top:12px !important;margin-bottom:12px !important}.mt-s{margin-top:12px !important}.mr-s{margin-inline-end:12px !important}.mb-s{margin-bottom:12px !important}.ml-s{margin-inline-start:12px !important}.m-m{margin:16px !important}.mx-m{margin-inline-start:16px !important;margin-inline-end:16px !important}.my-m{margin-top:16px !important;margin-bottom:16px !important}.mt-m{margin-top:16px !important}.mr-m{margin-inline-end:16px !important}.mb-m{margin-bottom:16px !important}.ml-m{margin-inline-start:16px !important}.m-l{margin:24px !important}.mx-l{margin-inline-start:24px !important;margin-inline-end:24px !important}.my-l{margin-top:24px !important;margin-bottom:24px !important}.mt-l{margin-top:24px !important}.mr-l{margin-inline-end:24px !important}.mb-l{margin-bottom:24px !important}.ml-l{margin-inline-start:24px !important}.m-xl{margin:32px !important}.mx-xl{margin-inline-start:32px !important;margin-inline-end:32px !important}.my-xl{margin-top:32px !important;margin-bottom:32px !important}.mt-xl{margin-top:32px !important}.mr-xl{margin-inline-end:32px !important}.mb-xl{margin-bottom:32px !important}.ml-xl{margin-inline-start:32px !important}.m-xxl{margin:48px !important}.mx-xxl{margin-inline-start:48px !important;margin-inline-end:48px !important}.my-xxl{margin-top:48px !important;margin-bottom:48px !important}.mt-xxl{margin-top:48px !important}.mr-xxl{margin-inline-end:48px !important}.mb-xxl{margin-bottom:48px !important}.ml-xxl{margin-inline-start:48px !important}.p-none{padding:0 !important}.px-none{padding-inline-start:0 !important;padding-inline-end:0 !important}.py-none{padding-top:0 !important;padding-bottom:0 !important}.pt-none{padding-top:0 !important}.pr-none{padding-inline-end:0 !important}.pb-none{padding-bottom:0 !important}.pl-none{padding-inline-start:0 !important}.p-xxs{padding:3px !important}.px-xxs{padding-inline-start:3px !important;padding-inline-end:3px !important}.py-xxs{padding-top:3px !important;padding-bottom:3px !important}.pt-xxs{padding-top:3px !important}.pr-xxs{padding-inline-end:3px !important}.pb-xxs{padding-bottom:3px !important}.pl-xxs{padding-inline-start:3px !important}.p-xs{padding:6px !important}.px-xs{padding-inline-start:6px !important;padding-inline-end:6px !important}.py-xs{padding-top:6px !important;padding-bottom:6px !important}.pt-xs{padding-top:6px !important}.pr-xs{padding-inline-end:6px !important}.pb-xs{padding-bottom:6px !important}.pl-xs{padding-inline-start:6px !important}.p-s{padding:12px !important}.px-s{padding-inline-start:12px !important;padding-inline-end:12px !important}.py-s{padding-top:12px !important;padding-bottom:12px !important}.pt-s{padding-top:12px !important}.pr-s{padding-inline-end:12px !important}.pb-s{padding-bottom:12px !important}.pl-s{padding-inline-start:12px !important}.p-m{padding:16px !important}.px-m{padding-inline-start:16px !important;padding-inline-end:16px !important}.py-m{padding-top:16px !important;padding-bottom:16px !important}.pt-m{padding-top:16px !important}.pr-m{padding-inline-end:16px !important}.pb-m{padding-bottom:16px !important}.pl-m{padding-inline-start:16px !important}.p-l{padding:24px !important}.px-l{padding-inline-start:24px !important;padding-inline-end:24px !important}.py-l{padding-top:24px !important;padding-bottom:24px !important}.pt-l{padding-top:24px !important}.pr-l{padding-inline-end:24px !important}.pb-l{padding-bottom:24px !important}.pl-l{padding-inline-start:24px !important}.p-xl{padding:32px !important}.px-xl{padding-inline-start:32px !important;padding-inline-end:32px !important}.py-xl{padding-top:32px !important;padding-bottom:32px !important}.pt-xl{padding-top:32px !important}.pr-xl{padding-inline-end:32px !important}.pb-xl{padding-bottom:32px !important}.pl-xl{padding-inline-start:32px !important}.p-xxl{padding:48px !important}.px-xxl{padding-inline-start:48px !important;padding-inline-end:48px !important}.py-xxl{padding-top:48px !important;padding-bottom:48px !important}.pt-xxl{padding-top:48px !important}.pr-xxl{padding-inline-end:48px !important}.pb-xxl{padding-bottom:48px !important}.pl-xxl{padding-inline-start:48px !important}*{box-sizing:border-box;outline-color:var(--color-primary);outline-width:1px}*:focus{outline-style:dotted}html{height:100%;overflow-y:scroll;background-color:#F2F2F2}html.flexbox{overflow-y:hidden}html.dark-mode{background-color:#111}body{font-size:14px;line-height:1.6;color:#444;-webkit-font-smoothing:antialiased}html.dark-mode body{color:#AAA}body,button,input,select,label,textarea{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Roboto","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif}.Codemirror,pre,#markdown-editor-input,.editor-toolbar,.code-base,code,span.code{font-family:"Lucida Console","DejaVu Sans Mono","Ubunto Mono",Monaco,monospace}h1{font-size:3.425em;line-height:1.22222222em;margin-top:0.48888889em;margin-bottom:0.48888889em}h2{font-size:2.8275em;line-height:1.294117647em;margin-top:0.8627451em;margin-bottom:0.43137255em}h3{font-size:2.333em;line-height:1.221428572em;margin-top:0.78571429em;margin-bottom:0.43137255em}h4{font-size:1.666em;line-height:1.375em;margin-top:0.78571429em;margin-bottom:0.43137255em}h1,h2,h3,h4,h5,h6{font-weight:400;position:relative;display:block;color:#222}html.dark-mode h1,html.dark-mode h2,html.dark-mode h3,html.dark-mode h4,html.dark-mode h5,html.dark-mode h6{color:#BBB}h1 .subheader,h2 .subheader,h3 .subheader,h4 .subheader,h5 .subheader,h6 .subheader{font-size:0.5em;line-height:1em;color:#969696}h5{font-size:1.4em}h5,h6{line-height:1.2em;margin-top:0.78571429em;margin-bottom:0.66em}@media screen and (max-width: 600px){h1{font-size:2.8275em}h2{font-size:2.333em}h3{font-size:1.666em}h4{font-size:1.333em}h5{font-size:1.161616em}}.list-heading{font-size:2rem}h2.list-heading{font-size:1.333rem}a{color:var(--color-primary);fill:currentColor;cursor:pointer;text-decoration:none;transition:filter ease-in-out 80ms;line-height:1.6}html.dark-mode a{filter:brightness(1.3) saturate(0.7)}a:hover{text-decoration:underline}a.icon{display:inline-block}a svg{position:relative;display:inline-block}a:focus img:only-child{outline:2px dashed var(--color-primary);outline-offset:2px}.blended-links a{color:inherit}.blended-links a svg{fill:currentColor}p,ul,ol,pre,table,blockquote{margin-top:0.3em;margin-bottom:1.375em}hr{border:0;height:1px;background:#eaeaea;margin-bottom:24px}html.dark-mode hr{background:#222}hr.faded{background-image:linear-gradient(to right, #fff, #e3e0e0 20%, #e3e0e0 80%, #fff)}hr.margin-top,hr.even{margin-top:24px}strong,b,.bold,.strong{font-weight:bold}strong>strong,strong>b,strong>.bold,strong>.strong,b>strong,b>b,b>.bold,b>.strong,.bold>strong,.bold>b,.bold>.bold,.bold>.strong,.strong>strong,.strong>b,.strong>.bold,.strong>.strong{font-weight:bolder}em,i,.italic{font-style:italic}small,p.small,span.small,.text-small{font-size:0.75rem;color:#5e5e5e}html.dark-mode small,html.dark-mode p.small,html.dark-mode span.small,html.dark-mode .text-small{color:#999}sup,.superscript{vertical-align:super;font-size:0.8em}sub,.subscript{vertical-align:sub;font-size:0.8em}pre{font-size:12px;border:1px solid #DDD;background-color:#f5f5f5;border-color:#DDD;padding-left:31px;position:relative;padding-top:3px;padding-bottom:3px}html.dark-mode pre{background-color:#2B2B2B}html.dark-mode pre{border-color:#111}pre:after{content:'';display:block;position:absolute;top:0;width:29px;left:0;height:100%;background-color:#f5f5f5;border-right:1px solid #DDD}html.dark-mode pre:after{background-color:#313335}html.dark-mode pre:after{border-right:none}@media print{pre{padding-left:12px}pre:after{display:none}}blockquote{display:block;position:relative;border-left:4px solid var(--color-primary);background-color:#f8f8f8;padding:12px 16px 12px 32px}html.dark-mode blockquote{background-color:#333}blockquote:before{content:"\201C";font-size:2em;font-weight:bold;position:absolute;top:12px;left:12px;color:#777}.text-mono{font-family:"Lucida Console","DejaVu Sans Mono","Ubunto Mono",Monaco,monospace}.text-uppercase{text-transform:uppercase}.text-capitals{text-transform:capitalize}.code-base,code,span.code{font-size:0.84em;border:1px solid #DDD;border-radius:3px;background-color:#f8f8f8f;border-color:#DDD}html.dark-mode .code-base,html.dark-mode code,html.dark-mode span.code{background-color:#2b2b2b}html.dark-mode .code-base,html.dark-mode code,html.dark-mode span.code{border-color:#444}code{display:inline;padding:1px 3px;white-space:pre-wrap;line-height:1.2em}span.code{padding:1px 6px}pre code{background-color:transparent;border:0;font-size:1em;display:block;line-height:1.6}span.highlight{font-weight:bold;padding:2px 4px}ul p,ol p{margin:0}ul{padding-left:20.8px;padding-right:20.8px;list-style:disc}ul ul{list-style:circle;margin-top:0;margin-bottom:0}ul label{margin:0}ol{list-style:decimal;padding-left:32px;padding-right:32px}li.checkbox-item,li.task-list-item{list-style:none;margin-left:-20.8px}li.checkbox-item input[type="checkbox"],li.task-list-item input[type="checkbox"]{margin-right:6px}li>ol,li>ul{margin-block-end:0px;margin-block-start:0px;padding-block-end:0px;padding-block-start:0px}.underlined{text-decoration:underline}.text-center{text-align:center}.text-left{text-align:start}.text-right{text-align:end}@media screen and (min-width: 360px){.text-xxs-center{text-align:center}.text-xxs-left{text-align:start}.text-xxs-right{text-align:end}}@media screen and (min-width: 400px){.text-xs-center{text-align:center}.text-xs-left{text-align:start}.text-xs-right{text-align:end}}@media screen and (min-width: 600px){.text-s-center{text-align:center}.text-s-left{text-align:start}.text-s-right{text-align:end}}@media screen and (min-width: 880px){.text-m-center{text-align:center}.text-m-left{text-align:start}.text-m-right{text-align:end}}@media screen and (min-width: 1000px){.text-l-center{text-align:center}.text-l-left{text-align:start}.text-l-right{text-align:end}}@media screen and (min-width: 1100px){.text-xl-center{text-align:center}.text-xl-left{text-align:start}.text-xl-right{text-align:end}}.text-bigger{font-size:1.1em}.text-large{font-size:1.6666em}.no-color{color:inherit}.break-text{word-wrap:break-word;overflow-wrap:break-word}.limit-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.header-group{margin:16px 0}.header-group h1,.header-group h2,.header-group h3,.header-group h4,.header-group h5,.header-group h6{margin:0}span.sep{color:#BBB;padding:0 6px}.list>*{display:block}.svg-icon{width:1em;height:1em;display:inline-block;position:relative;bottom:-0.105em;margin-inline-end:6px;pointer-events:none;fill:currentColor}.container{max-width:1400px;margin-inline-start:auto;margin-inline-end:auto;padding-inline-start:16px;padding-inline-end:16px}.container.small{max-width:840px}.container.very-small{max-width:480px}.grid{display:grid;grid-column-gap:24px;grid-row-gap:24px}.grid.half{grid-template-columns:1fr 1fr}.grid.third{grid-template-columns:1fr 1fr 1fr}.grid.left-focus{grid-template-columns:2fr 1fr}.grid.right-focus{grid-template-columns:1fr 3fr}.grid.gap-y-xs{grid-row-gap:6px}.grid.gap-xl{grid-column-gap:32px;grid-row-gap:32px}.grid.gap-xxl{grid-column-gap:48px;grid-row-gap:48px}.grid.v-center{align-items:center}.grid.no-gap{grid-row-gap:0;grid-column-gap:0}.grid.no-row-gap{grid-row-gap:0}@media screen and (max-width: 880px){.grid.third:not(.no-break){grid-template-columns:1fr 1fr}.grid.half:not(.no-break),.grid.left-focus:not(.no-break),.grid.right-focus:not(.no-break){grid-template-columns:1fr}.grid.half.collapse-xs{grid-template-columns:1fr 1fr}.grid.gap-xl{grid-column-gap:16px;grid-row-gap:16px}.grid.right-focus.reverse-collapse>*:nth-child(2){order:0}.grid.right-focus.reverse-collapse>*:nth-child(1){order:1}}@media screen and (max-width: 600px){.grid.third:not(.no-break){grid-template-columns:1fr}}@media screen and (max-width: 400px){.grid.half.collapse-xs{grid-template-columns:1fr}}body.flexbox{display:flex;flex-direction:column;align-items:stretch;height:100%;min-height:100%;max-height:100%;overflow:hidden}body.flexbox #content{flex:1;display:flex;min-height:0}.flex-fill{display:flex;align-items:stretch;min-height:0;max-width:100%;position:relative}.flex{min-height:0;flex:1}.block{display:block;position:relative}.inline{display:inline}.block.inline{display:inline-block}.hidden{display:none}.float{float:left}.float.right{float:right}@media screen and (max-width: 360px){.hide-under-xxs{display:none !important}}@media screen and (min-width: 360px){.hide-over-xxs{display:none !important}}@media screen and (max-width: 400px){.hide-under-xs{display:none !important}}@media screen and (min-width: 400px){.hide-over-xs{display:none !important}}@media screen and (max-width: 600px){.hide-under-s{display:none !important}}@media screen and (min-width: 600px){.hide-over-s{display:none !important}}@media screen and (max-width: 880px){.hide-under-m{display:none !important}}@media screen and (min-width: 880px){.hide-over-m{display:none !important}}@media screen and (max-width: 1000px){.hide-under-l{display:none !important}}@media screen and (min-width: 1000px){.hide-over-l{display:none !important}}@media screen and (max-width: 1100px){.hide-under-xl{display:none !important}}@media screen and (min-width: 1100px){.hide-over-xl{display:none !important}}.dual-column-content{columns:2}@media screen and (max-width: 880px){.dual-column-content{columns:1}}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.tri-layout-container{display:grid;margin-inline-start:32px;margin-inline-end:32px;grid-template-columns:1fr 4fr 1fr;grid-template-areas:"a b c";grid-column-gap:48px}.tri-layout-container .tri-layout-right{grid-area:c;min-width:0}.tri-layout-container .tri-layout-left{grid-area:a;min-width:0}.tri-layout-container .tri-layout-middle{grid-area:b;padding-top:16px}@media screen and (max-width: 1400px){.tri-layout-container{grid-template-areas:"c b b" "a b b" ". b b";grid-template-columns:1fr 3fr;grid-template-rows:min-content min-content 1fr;padding-inline-end:24px}}@media screen and (min-width: 1000px) and (max-width: 1400px){.tri-layout-left{position:sticky;top:16px}}@media screen and (min-width: 1400px){.tri-layout-left-contents,.tri-layout-right-contents{padding:16px;position:sticky;top:16px;max-height:100vh;min-height:50vh;overflow-y:scroll;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none}.tri-layout-left-contents::-webkit-scrollbar,.tri-layout-right-contents::-webkit-scrollbar{display:none}.tri-layout-middle-contents{max-width:940px;margin:0 auto}}@media screen and (max-width: 1000px){.tri-layout-container{grid-template-areas:none;grid-template-columns:1fr;grid-column-gap:0;padding-inline-end:6px;padding-inline-start:6px}.tri-layout-container .tri-layout-left-contents,.tri-layout-container .tri-layout-right-contents{padding-inline-start:16px;padding-inline-end:16px}.tri-layout-container .tri-layout-left>*,.tri-layout-container .tri-layout-right>*{display:none;pointer-events:none}.tri-layout-container .tri-layout-left,.tri-layout-container .tri-layout-right{grid-area:none;grid-column:1/1;grid-row:1;padding-top:0 !important}.tri-layout-container .tri-layout-middle{grid-area:none;grid-row:3;grid-column:1/1;z-index:1;overflow:hidden;transition:transform ease-in-out 240ms}.tri-layout-container .tri-layout-left{grid-row:2}.tri-layout-container.show-info{overflow:hidden}.tri-layout-container.show-info .tri-layout-middle{display:none}.tri-layout-container.show-info .tri-layout-right>*,.tri-layout-container.show-info .tri-layout-left>*{display:block;pointer-events:auto}}@media screen and (min-width: 1000px){.tri-layout-mobile-tabs{display:none}.tri-layout-left-contents>*,.tri-layout-right-contents>*{opacity:0.6;transition:opacity ease-in-out 120ms}.tri-layout-left-contents>*:hover,.tri-layout-right-contents>*:hover{opacity:1}.tri-layout-left-contents>*:focus-within,.tri-layout-right-contents>*:focus-within{opacity:1}}@media screen and (max-width: 880px){.tri-layout-container{margin-inline-start:0;margin-inline-end:0}}.callout{border-inline-start:3px solid #BBB;background-color:#EEE;padding:12px 12px 12px 32px;display:block;position:relative}.callout:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMwMTUzODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bTEgMTVoLTJ2LTZoMnY2em0wLThoLTJWN2gydjJ6Ii8+PC9zdmc+");background-repeat:no-repeat;content:'';width:1.2em;height:1.2em;left:8px;top:50%;margin-top:-9px;display:inline-block;position:absolute;line-height:1;opacity:0.8}.callout.success{border-left-color:#0f7d15;background-color:#eafdeb;color:#063409}html.dark-mode .callout.success{background-color:#031904}html.dark-mode .callout.success{color:#129419}.callout.success:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiMzNzZjMzkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEyIDJDNi40OCAyIDIgNi40OCAyIDEyczQuNDggMTAgMTAgMTAgMTAtNC40OCAxMC0xMFMxNy41MiAyIDEyIDJ6bS0yIDE1bC01LTUgMS40MS0xLjQxTDEwIDE0LjE3bDcuNTktNy41OUwxOSA4bC05IDl6Ii8+PC9zdmc+")}.callout.danger{border-left-color:#ab0f0e;background-color:#fcdbdb;color:#4d0706}html.dark-mode .callout.danger{background-color:#1e0302}html.dark-mode .callout.danger{color:#c31110}.callout.danger:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNiOTE4MTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0xNS43MyAzSDguMjdMMyA4LjI3djcuNDZMOC4yNyAyMWg3LjQ2TDIxIDE1LjczVjguMjdMMTUuNzMgM3pNMTIgMTcuM2MtLjcyIDAtMS4zLS41OC0xLjMtMS4zIDAtLjcyLjU4LTEuMyAxLjMtMS4zLjcyIDAgMS4zLjU4IDEuMyAxLjMgMCAuNzItLjU4IDEuMy0xLjMgMS4zem0xLTQuM2gtMlY3aDJ2NnoiLz4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==")}.callout.info{border-left-color:#0288D1;color:#01466c;background-color:#d3efff}html.dark-mode .callout.info{color:#09a7fd}html.dark-mode .callout.info{background-color:#001520}.callout.warning{border-left-color:#cf4d03;background-color:#fee3d3;color:#6a2802}html.dark-mode .callout.warning{background-color:#1a0a00}html.dark-mode .callout.warning{color:#cf4d03}.callout.warning:before{background-image:url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9IiNiNjUzMWMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+ICAgIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4gICAgPHBhdGggZD0iTTEgMjFoMjJMMTIgMiAxIDIxem0xMi0zaC0ydi0yaDJ2MnptMC00aC0ydi00aDJ2NHoiLz48L3N2Zz4=")}.card{background-color:#fff;box-shadow:0 1px 6px -1px rgba(0,0,0,0.1);border-radius:3px;border:1px solid transparent}html.dark-mode .card{background-color:#222}.card .body,.card p.empty-text{padding:16px}.card a,.card p{word-wrap:break-word;word-break:break-word}.card-title{padding:16px 16px 6px;margin:0;font-size:14px;color:#222;fill:#222;font-weight:400}.card-title a{line-height:1}.card.border-card{border:1px solid #DDD}.card.drag-card{border:1px solid #DDD;border-color:#ddd;background-color:#fff;border-radius:4px;display:flex;padding:0 0 0 40px;margin:12px 0;position:relative}html.dark-mode .card.drag-card{border-color:#000}html.dark-mode .card.drag-card{background-color:#333}.card.drag-card .drag-card-action{cursor:pointer}.card.drag-card .handle,.card.drag-card .drag-card-action{display:flex;align-items:center;text-align:center;justify-content:center;width:28px;flex-grow:0;padding:0 6px}.card.drag-card .handle:hover,.card.drag-card .drag-card-action:hover{background-color:#EEE}.card.drag-card .handle .svg-icon,.card.drag-card .drag-card-action .svg-icon{margin-inline-end:0px}.card.drag-card>div .outline input{margin:12px 0;width:100%}.card.drag-card .handle{background-color:#eee;left:0;position:absolute;top:0;bottom:0}html.dark-mode .card.drag-card .handle{background-color:#2d2d2d}.card.drag-card>div{padding:0 12px;max-width:80%;flex:1}.grid-card{display:flex;flex-direction:column;border:1px solid #ddd;border-color:#ddd;margin-bottom:24px;border-radius:4px;overflow:hidden;min-width:100px;color:#444;transition:border-color ease-in-out 120ms, box-shadow ease-in-out 120ms}html.dark-mode .grid-card{border-color:#000}.grid-card:hover{color:#444;text-decoration:none;box-shadow:0 1px 6px -1px rgba(0,0,0,0.1)}html.dark-mode .grid-card:hover{box-shadow:0 1px 6px -1px rgba(0,0,0,0.5)}.grid-card h2{width:100%;font-size:1.5em;margin:0 0 10px}.grid-card p{font-size:.7rem;margin:0;line-height:1.6em}.grid-card .grid-card-content{flex:1;border-top:0;border-bottom-width:2px}.grid-card .grid-card-content,.grid-card .grid-card-footer{padding:24px}.grid-card .grid-card-content+.grid-card-footer{padding-top:0}.book-grid-item .grid-card-footer p.small{font-size:.8em;margin:0}.content-wrap.card{padding:16px 48px;margin-inline-start:auto;margin-inline-end:auto;margin-bottom:32px;overflow:initial;min-height:60vh}.content-wrap.card.auto-height{min-height:0}.content-wrap.card.fill-width{width:100%}@media screen and (max-width: 1400px){.content-wrap.card{padding:16px 32px}}@media screen and (max-width: 880px){.content-wrap.card{padding:16px 24px}}@media screen and (max-width: 600px){.content-wrap.card{padding:16px 16px}}.tag-item{display:inline-flex;margin-bottom:6px;margin-inline-end:6px;border-radius:4px;border:1px solid #CCC;overflow:hidden;font-size:0.85em}.tag-item a,.tag-item a:hover,.tag-item a:active{padding:4px 8px;color:#777;transition:background-color ease-in-out 80ms;text-decoration:none}html.dark-mode .tag-item a,html.dark-mode .tag-item a:hover,html.dark-mode .tag-item a:active{color:#999}.tag-item a:hover{background-color:rgba(255,255,255,0.7)}html.dark-mode .tag-item a:hover{background-color:rgba(255,255,255,0.3)}.tag-item svg{fill:#888}.tag-item .tag-value{border-inline-start:1px solid #DDD;background-color:rgba(255,255,255,0.5)}html.dark-mode .tag-item .tag-value{background-color:rgba(255,255,255,0.2)}.tag-list div:last-child .tag-item{margin-bottom:0}.api-method{font-size:0.75rem;background-color:#888;padding:6px;line-height:1.3;opacity:0.7;vertical-align:top;border-radius:3px;color:#FFF;display:inline-block;min-width:60px;text-align:center;font-weight:bold}.api-method[data-method="GET"]{background-color:#077b70}.api-method[data-method="POST"]{background-color:#cf4d03}.api-method[data-method="PUT"]{background-color:#0288D1}.api-method[data-method="DELETE"]{background-color:#ab0f0e}.sticky-sidebar{position:sticky;top:16px}table{min-width:100px;max-width:100%}table thead{background-color:#f8f8f8;font-weight:500}html.dark-mode table thead{background-color:#333}table td,table th{min-width:10px;padding:6px 8px;border:1px solid #DDD;overflow:auto;line-height:1.2}table td p,table th p{margin:0}table.table{width:100%}table.table tr td,table.table tr th{border-bottom:1px solid rgba(0,0,0,0.05)}table.table th,table.table td{text-align:start;border:none;padding:12px 12px;vertical-align:middle;margin:0}table.table th{font-weight:bold}table.table tr:hover{background-color:#eee}html.dark-mode table.table tr:hover{background-color:#333}table.table .text-right{text-align:end}table.table .text-center{text-align:center}table.table td.actions{overflow:visible}table.table a{display:inline-block}table.no-style td{border:0;padding:0}table.list-table{margin:-6px}table.list-table td{border:0;vertical-align:middle;padding:6px}header .grid{grid-template-columns:auto min-content auto}@media screen and (max-width: 1000px){header .grid{grid-template-columns:1fr;grid-row-gap:0}}header{position:relative;display:block;z-index:11;top:0;color:#fafafa;border-bottom:1px solid #DDD;box-shadow:0 1px 6px -1px rgba(0,0,0,0.1);padding:3px 0;border-bottom-color:#DDD}html.dark-mode header{border-bottom-color:#000}html.dark-mode header{filter:saturate(0.6) brightness(0.8)}header .links{display:inline-block;vertical-align:top}header .links a{display:inline-block;padding:16px;color:#FFF}header .dropdown-container{padding-inline-start:16px;padding-inline-end:0}header .avatar,header .user-name{display:inline-block}header .avatar{width:30px;height:30px}header .user-name{vertical-align:top;position:relative;display:inline-block;cursor:pointer}header .user-name>*{vertical-align:top}header .user-name>span{padding-inline-start:6px;display:inline-block;padding-top:3px}header .user-name>svg{padding-top:4px;font-size:18px}@media screen and (min-width: 1000px) and (max-width: 1100px){header .user-name{padding-inline-start:6px}header .user-name .name{display:none}}.header *,.primary-background *{outline-color:#FFF}.header-search{display:inline-block}header .search-box{display:inline-block;margin-top:10px}header .search-box input{background-color:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.2);border-radius:40px;color:#EEE;z-index:2;padding-inline-start:40px}header .search-box input:focus{outline:none;border:1px solid rgba(255,255,255,0.6)}header .search-box button{z-index:1;left:16px;color:rgba(255,255,255,0.8)}html.dark-mode header .search-box button{color:#AAA}html[dir=rtl] header .search-box button{left:auto;right:16px}header .search-box button svg{margin-block-end:0}header .search-box ::-webkit-input-placeholder{color:#DDD}header .search-box ::-moz-placeholder{color:#DDD}@media screen and (min-width: 1000px) and (max-width: 1100px){header .search-box{max-width:200px}}.logo{display:inline-block}.logo:hover{color:#FFF;text-decoration:none}.logo-text{display:inline-block;font-size:1.8em;color:#fff;font-weight:400;padding-block-start:14px;padding-block-end:14px;padding-inline-start:0;padding-inline-end:24px;vertical-align:top;line-height:1}.logo-image{margin-block-start:6px;margin-block-end:6px;margin-inline-start:0;margin-inline-end:12px;vertical-align:top;height:43px}.mobile-menu-toggle{color:#FFF;fill:#FFF;font-size:2em;border:2px solid rgba(255,255,255,0.8);border-radius:4px;padding:0 6px;position:absolute;right:16px;top:13px;line-height:1;cursor:pointer;user-select:none}.mobile-menu-toggle svg{margin:0;bottom:-2px}html[dir=rtl] .mobile-menu-toggle{left:16px;right:auto}@media screen and (max-width: 1000px){header .header-links{background-color:#fff;display:none;z-index:10;right:16px;border-radius:4px;overflow:hidden;position:absolute;box-shadow:0 2px 2px 1px rgba(0,0,0,0.13);margin-top:-6px}html.dark-mode header .header-links{background-color:#333}header .header-links.show{display:block}header .links a,header .dropdown-container ul li a,header .dropdown-container ul li button{text-align:start;display:block;padding:12px 16px;color:#444;color:#444}html.dark-mode header .links a,html.dark-mode header .dropdown-container ul li a,html.dark-mode header .dropdown-container ul li button{color:#eee}header .links a svg,header .dropdown-container ul li a svg,header .dropdown-container ul li button svg{margin-inline-end:12px}header .links a:hover,header .dropdown-container ul li a:hover,header .dropdown-container ul li button:hover{background-color:#eee;color:#000;text-decoration:none}html.dark-mode header .links a:hover,html.dark-mode header .dropdown-container ul li a:hover,html.dark-mode header .dropdown-container ul li button:hover{background-color:#333}html.dark-mode header .links a:hover,html.dark-mode header .dropdown-container ul li a:hover,html.dark-mode header .dropdown-container ul li button:hover{color:#fff}header .dropdown-container{display:block;padding-inline-start:0}header .links{display:block}header .dropdown-container ul{display:block !important;position:relative;background-color:transparent;border:0;padding:0;margin:0;box-shadow:none}}.tri-layout-mobile-tabs{position:sticky;top:0;z-index:5;background-color:#FFF;border-bottom:1px solid #DDD;box-shadow:0 1px 6px -1px rgba(0,0,0,0.1)}.tri-layout-mobile-tab{text-align:center;border-bottom:3px solid #BBB;cursor:pointer}.tri-layout-mobile-tab:first-child{border-inline-end:1px solid #DDD}.tri-layout-mobile-tab.active{border-bottom-color:currentColor}.breadcrumbs{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap;opacity:0.7}.breadcrumbs .icon-list-item{width:auto;padding-top:6px;padding-bottom:6px}.breadcrumbs .separator{display:inline-block;fill:#aaa;font-size:1.6em;line-height:0.8;margin:-2px 0 0}.breadcrumbs:hover,.breadcrumbs:focus-within{opacity:1}@media screen and (max-width: 1000px){.breadcrumbs .icon-list-item{padding:6px}.breadcrumbs .icon-list-item>span+span{display:none}.breadcrumbs .icon-list-item>span:first-child{margin-inline-end:0}}.breadcrumb-listing{position:relative}.breadcrumb-listing .breadcrumb-listing-toggle{padding:6px;border:1px solid transparent;border-radius:4px}.breadcrumb-listing .breadcrumb-listing-toggle:hover{border-color:#DDD}.breadcrumb-listing .svg-icon{margin-inline-end:0}.breadcrumb-listing-dropdown{box-shadow:0 1px 3px 1px rgba(76,76,76,0.26);overflow:hidden;min-height:100px;width:240px;display:none;position:absolute;z-index:80;right:-16px}html[dir=rtl] .breadcrumb-listing-dropdown{right:auto;left:-16px}.breadcrumb-listing-dropdown .breadcrumb-listing-search .svg-icon{position:absolute;left:12px;top:11px;fill:#888;pointer-events:none}html[dir=rtl] .breadcrumb-listing-dropdown .breadcrumb-listing-search .svg-icon{right:12px;left:auto}.breadcrumb-listing-dropdown .breadcrumb-listing-entity-list{max-height:400px;overflow-y:scroll;text-align:start}.breadcrumb-listing-dropdown input{padding-inline-start:32px;border-radius:0;border:0;border-bottom:1px solid #DDD}@media screen and (max-width: 880px){.breadcrumb-listing-dropdown{position:fixed;right:auto;left:16px}.breadcrumb-listing-dropdown .breadcrumb-listing-entity-list{max-height:240px}}.faded a,.faded button,.faded span,.faded span>div{color:#666;fill:#666}.faded .text-button{opacity:0.5;transition:all ease-in-out 120ms}.faded .text-button:hover{opacity:1;text-decoration:none}.faded span.faded-text{display:inline-block;padding:12px}.action-buttons .text-button{display:inline-block;padding:6px 12px}.action-buttons .text-button:last-child{padding-inline-end:0}.action-buttons .text-button:first-child{padding-inline-start:0}.action-buttons .dropdown-container:last-child a{padding-inline-end:0;padding-inline-start:12px}.action-buttons{text-align:end}.action-buttons.text-left{text-align:start}.action-buttons.text-left .text-button{padding-inline-end:16px;padding-inline-start:0}.action-buttons.text-center{text-align:center}@media screen and (max-width: 880px){.action-buttons .text-button{padding:6px 6px}.action-buttons .dropdown-container:last-child a{padding-inline-start:6px}}.book-contents .entity-list-item .icon{width:4px;border-radius:1px;justify-self:stretch;align-self:stretch;height:auto;margin-inline-end:24px}.book-contents .entity-list-item .icon:after{opacity:0.5}.book-contents .entity-list-item .icon svg{display:none}.book-contents .entity-list-item p{margin-bottom:0}.book-contents .entity-list-item .inner-page{padding-top:0;padding-bottom:0}.entity-list-item+.chapter-expansion{display:flex;padding:0 16px 16px 16px;align-items:center;border:0;width:100%;position:relative}.entity-list-item+.chapter-expansion>.icon{width:4px;height:auto;border-radius:0 0 1px 1px;align-self:stretch;flex-shrink:0}.entity-list-item+.chapter-expansion>.icon:before{position:absolute;top:0;left:0;width:100%;height:1px;background-color:currentColor;content:'';opacity:0.5}.entity-list-item+.chapter-expansion>.icon:after{opacity:0.5}.entity-list-item+.chapter-expansion .icon svg{display:none}.entity-list-item+.chapter-expansion>.content{flex:1}.entity-list-item+.chapter-expansion .chapter-expansion-toggle{border-radius:0 4px 4px 0;padding:6px 16px;width:100%;text-align:start}.entity-list-item+.chapter-expansion .chapter-expansion-toggle:hover{background-color:rgba(0,0,0,0.06)}.entity-list-item.has-children{padding-bottom:0}.entity-list-item.has-children>.icon{border-radius:4px 4px 0 0}.inset-list{display:none}.inset-list .entity-list-item-name{font-size:1rem}.inset-list .entity-list-item-children{padding-top:0;padding-bottom:0}.sidebar-page-nav{list-style:none;margin-block-start:12px;margin-block-end:16px;margin-inline-start:6px;margin-inline-end:0;position:relative}.sidebar-page-nav:after{content:'';display:block;position:absolute;left:0;background-color:rgba(0,0,0,0.2);width:2px;top:5px;bottom:5px;z-index:0}html[dir=rtl] .sidebar-page-nav:after{left:auto;right:0}html.dark-mode .sidebar-page-nav:after{background-color:rgba(255,255,255,0.2)}.sidebar-page-nav li{margin-bottom:4px;font-size:0.95em;position:relative}.sidebar-page-nav .h1{padding-inline-start:16px}.sidebar-page-nav .h2{padding-inline-start:24px}.sidebar-page-nav .h3{padding-inline-start:32px}.sidebar-page-nav .h4{padding-inline-start:40px}.sidebar-page-nav .h5{padding-inline-start:48px}.sidebar-page-nav .h6{padding-inline-start:56px}.sidebar-page-nav .current-heading{font-weight:bold}.sidebar-page-nav li:not(.current-heading) .sidebar-page-nav-bullet{background-color:#BBB !important}html.dark-mode .sidebar-page-nav li:not(.current-heading) .sidebar-page-nav-bullet{background-color:#666 !important}.sidebar-page-nav .sidebar-page-nav-bullet{width:6px;height:6px;position:absolute;left:-2px;top:30%;border-radius:50%;box-shadow:0 0 0 6px #F2F2F2;box-shadow:0 0 0 6px #F2F2F2;z-index:1}html.dark-mode .sidebar-page-nav .sidebar-page-nav-bullet{box-shadow:0 0 0 6px #111}html[dir=rtl] .sidebar-page-nav .sidebar-page-nav-bullet{left:auto;right:-2px}.book-tree .sidebar-page-list{list-style:none;margin-block-start:6px;margin-block-end:0;margin-inline-start:-12px;margin-inline-end:-12px;padding-inline-start:0;padding-inline-end:0;position:relative}.book-tree .sidebar-page-list:after,.book-tree .sidebar-page-list .sub-menu:after{content:'';display:block;position:absolute;left:16px;top:1rem;bottom:1rem;border-inline-start:4px solid rgba(0,0,0,0.1);z-index:0}html[dir=rtl] .book-tree .sidebar-page-list:after,html[dir=rtl] .book-tree .sidebar-page-list .sub-menu:after{left:auto;right:16px}.book-tree .sidebar-page-list ul{list-style:none;padding-inline-start:1rem;padding-inline-end:0}.book-tree .sidebar-page-list .entity-list-item{padding-top:3px;padding-bottom:3px;background-clip:content-box;border-radius:0 3px 3px 0}.book-tree .sidebar-page-list .entity-list-item .content{padding-top:6px;padding-bottom:6px;max-width:calc(100% - 20px)}.book-tree .sidebar-page-list .entity-list-item.selected{background-color:rgba(0,0,0,0.08)}.book-tree .sidebar-page-list .entity-list-item.no-hover{margin-top:-6px;padding-inline-end:0}.book-tree .sidebar-page-list .entity-list-item-name{font-size:1em;margin:0}.book-tree .sidebar-page-list .chapter-child-menu{font-size:.8rem;margin-top:-.2rem;margin-inline-start:-1rem}.book-tree .sidebar-page-list [chapter-toggle]{padding-inline-start:.7rem;padding-bottom:.2rem}.book-tree .sidebar-page-list .entity-list-item .icon{z-index:2;width:4px;height:auto;align-self:stretch;flex-shrink:0;border-radius:1px;opacity:0.6}.book-tree .sidebar-page-list .entity-list-item .icon:after{opacity:1}.book-tree .sidebar-page-list .entity-list-item .icon svg{display:none}.chapter-child-menu ul.sub-menu{display:none;padding-inline-start:0;position:relative}.chapter-child-menu [chapter-toggle].open+.sub-menu{display:block}.sortable-page-list,.sortable-page-list ul{list-style:none}.sort-box{margin-bottom:16px;padding:16px 32px;position:relative}.sort-box::before{pointer-events:none;content:'';border-radius:4px;opacity:0.5;border:2px solid var(--color-book);display:block;top:0;bottom:0;left:0;right:0;position:absolute}.sort-box-options{display:flex;flex-wrap:wrap;justify-content:space-between}.sort-box-options .button{margin-inline-start:0}.sortable-page-list{margin-inline-start:0;padding:0}.sortable-page-list .entity-list-item>span:first-child{align-self:flex-start}.sortable-page-list .entity-list-item>div{display:block;flex:1}.sortable-page-list>ul{margin-inline-start:0}.sortable-page-list ul{margin-bottom:16px;margin-top:0;padding-inline-start:16px}.sortable-page-list li{border:1px solid #DDD;margin-top:-1px;min-height:38px}.sortable-page-list li.text-page,.sortable-page-list li.text-chapter{border-inline-start:2px solid currentColor}.sortable-page-list li:first-child{margin-top:6px}.sortable-page-list li.placeholder{position:relative}.sortable-page-list li.placeholder:before{position:absolute}.activity-list-item{padding:12px 0;display:grid;grid-template-columns:min-content 1fr;grid-column-gap:16px;font-size:0.9em}.card .activity-list-item{padding:12px 16px}.user-list-item{display:inline-grid;padding:12px;grid-template-columns:min-content 1fr;grid-column-gap:16px;font-size:0.9em;align-items:center}.user-list-item>div:first-child{line-height:0}ul.pagination{display:inline-block;list-style:none;margin:16px 0;padding-inline-start:1px}ul.pagination li{float:left}ul.pagination li:first-child a,ul.pagination li:first-child span{border-radius:3px 0 0 3px}ul.pagination li:last-child a,ul.pagination li:last-child span{border-radius:0 3px 3px 0}ul.pagination a,ul.pagination span{display:block;padding:3px 12px;border:1px solid #CCC;margin-inline-start:-1px;user-select:none}ul.pagination a.disabled,ul.pagination span.disabled{cursor:not-allowed}ul.pagination li.active span{color:#444;background-color:rgba(0,0,0,0.1)}html.dark-mode ul.pagination li.active span{color:#eee}html.dark-mode ul.pagination li.active span{background-color:rgba(0,0,0,0.5)}.compact ul.pagination{margin:0}.entity-list,.icon-list{margin:0 -16px}.entity-list h4,.icon-list h4{margin:0}.entity-list hr,.icon-list hr{margin:0}.entity-list .text-small.text-muted,.icon-list .text-small.text-muted{color:#AAA;font-size:0.75em;margin-top:6px}.entity-list .text-muted p.text-muted,.icon-list .text-muted p.text-muted{margin-top:0}.entity-list .page.draft .text-page,.icon-list .page.draft .text-page{color:var(--color-page-draft);fill:var(--color-page-draft)}.entity-list>.dropdown-container,.icon-list>.dropdown-container{display:block}.icon-list hr{margin:12px 16px;max-width:140px;opacity:0.25;height:1.1px}.icon-list hr+hr,.icon-list hr:first-child,.icon-list hr:last-child{display:none}.entity-list-item,.icon-list-item{padding:12px 16px;display:flex;align-items:center;background-color:transparent;border:0;width:100%;position:relative;word-break:break-word}.entity-list-item h4 a,.icon-list-item h4 a{color:#666}.entity-list-item>span:first-child,.icon-list-item>span:first-child{margin-inline-end:16px;flex-basis:1.88em;flex:none}.entity-list-item>span:last-child,.icon-list-item>span:last-child{flex:1;text-align:start}.entity-list-item:not(.no-hover),.icon-list-item:not(.no-hover){cursor:pointer}.entity-list-item:not(.no-hover):hover,.icon-list-item:not(.no-hover):hover{text-decoration:none;background-color:rgba(0,0,0,0.1);border-radius:4px}.entity-list-item.outline-hover,.icon-list-item.outline-hover{border:1px solid transparent}.entity-list-item.outline-hover:hover,.icon-list-item.outline-hover:hover{background-color:transparent;border-color:rgba(0,0,0,0.1)}.entity-list-item:focus,.icon-list-item:focus{background-color:#eee;outline:1px dotted #666;outline-offset:-2px}html.dark-mode .entity-list-item:focus,html.dark-mode .icon-list-item:focus{background-color:#222}.entity-list-item-path-sep{display:inline-block;vertical-align:top;position:relative;top:1px}.entity-list-item-path-sep svg{margin-inline-end:0}.card .entity-list-item:not(.no-hover):hover{background-color:#F2F2F2}html.dark-mode .card .entity-list-item:not(.no-hover):hover{background-color:#2d2d2d}.card .entity-list-item .entity-list-item:hover{background-color:#EEEEEE}.entity-list-item-children{padding:16px}.entity-list-item-children>div{overflow:hidden;padding:6px 0;margin-top:-6px}.entity-list-item-children .entity-chip{text-overflow:ellipsis;height:2.5em;overflow:hidden;text-align:start;display:block;white-space:nowrap}.entity-list-item-image{align-self:stretch;width:140px;flex:none;background-size:cover;background-position:50% 50%;border-radius:3px;position:relative;margin-inline-end:24px}.entity-list-item-image.entity-list-item-image-wide{width:220px}.entity-list-item-image .svg-icon{color:#fff;font-size:1.66rem;margin-inline-end:0;position:absolute;bottom:6px;left:6px}html.dark-mode .entity-list-item-image .svg-icon{color:rgba(255,255,255,0.6)}@media screen and (max-width: 880px){.entity-list-item-image{width:80px}}.chapter>.entity-list-item-image{width:60px}.entity-list.compact{font-size:8.4px}.entity-list.compact h4,.entity-list.compact a{line-height:1.2}.entity-list.compact .entity-item-snippet{display:none}.entity-list.compact .entity-list-item p{font-size:11.2px;padding-top:6px}.entity-list.compact p{margin:0}.entity-list.compact>p.empty-text{display:block;font-size:14px}.entity-list.compact hr{margin:0}@media screen and (max-width: 880px){.entity-list.compact h4{font-size:1.666em}}.dropdown-container{display:inline-block;vertical-align:top;position:relative}.dropdown-menu{display:none;position:absolute;z-index:999;top:0;list-style:none;right:0;margin:16px 0;background-color:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,0.1);border-radius:1px;border:1px solid #EEE;border-color:#eee;min-width:180px;padding:6px 0;color:#555;fill:currentColor;text-align:start !important}html.dark-mode .dropdown-menu{background-color:#333}html.dark-mode .dropdown-menu{border-color:#000}html.dark-mode .dropdown-menu{color:#eee}.dropdown-menu.wide{min-width:220px}.dropdown-menu .text-muted{color:#999;fill:#999}.dropdown-menu li.active a{font-weight:600}.dropdown-menu a,.dropdown-menu button{display:block;padding:6px 16px;color:#555;fill:currentColor;white-space:nowrap;line-height:1.6;cursor:pointer}html.dark-mode .dropdown-menu a,html.dark-mode .dropdown-menu button{color:#eee}.dropdown-menu a:hover,.dropdown-menu a:focus,.dropdown-menu button:hover,.dropdown-menu button:focus{text-decoration:none;background-color:var(--color-primary-light);color:var(--color-primary)}.dropdown-menu a:focus,.dropdown-menu button:focus{outline:1px solid var(--color-primary);outline-offset:-2px}.dropdown-menu a svg,.dropdown-menu button svg{margin-inline-end:12px;display:inline-block;width:16px}.dropdown-menu button{width:100%;text-align:start}.dropdown-menu li.border-bottom{border-bottom:1px solid #DDD}.dropdown-menu li hr{margin:6px 0}.featured-image-container{position:relative;overflow:hidden;min-height:140px;background-size:cover;background-position:50% 50%;transition:opacity ease-in-out 240ms}.featured-image-container a{display:block}.featured-image-container img{display:block;width:100%;max-width:100%;height:auto}.featured-image-container-wrap{position:relative}.featured-image-container-wrap .svg-icon{color:#fff;font-size:2rem;margin-inline-end:0;position:absolute;bottom:10px;left:6px}html.dark-mode .featured-image-container-wrap .svg-icon{color:rgba(255,255,255,0.6)}.grid-card:hover .featured-image-container{opacity:.5}.action-link{background:transparent;border:none;color:currentColor;padding:16px 0}.active-link-list a{display:inline-block;padding:12px}.active-link-list a:not(.active){color:#444}html.dark-mode .active-link-list a:not(.active){color:#666}.active-link-list a:hover{background-color:rgba(0,0,0,0.05);border-radius:3px;text-decoration:none}html.dark-mode .active-link-list a:hover{background-color:rgba(255,255,255,0.05)}.page-editor{display:flex;flex-direction:column;align-items:stretch;overflow:hidden}.page-editor .edit-area{flex:1;flex-direction:column;z-index:10}.page-editor .mce-tinymce{box-shadow:none}.page-editor .mce-top-part::before{box-shadow:none}body.mce-fullscreen .page-editor .edit-area,body.markdown-fullscreen .page-editor .edit-area{z-index:12}body.mce-fullscreen .page-editor,body.mce-fullscreen .flex-fill,body.markdown-fullscreen .page-editor,body.markdown-fullscreen .flex-fill{overflow:visible}@media screen and (max-width: 600px){.page-edit-toolbar{overflow-x:scroll;overflow-y:visible}.page-edit-toolbar .grid.third{display:block;white-space:nowrap}.page-edit-toolbar .grid.third>div{display:inline-block}}.page-save-mobile-button{position:fixed;z-index:30;border-radius:50%;width:56px;height:56px;font-size:24px;right:16px;bottom:12px;box-shadow:0 2px 2px 1px rgba(0,0,0,0.13);background-color:currentColor;text-align:center}.page-save-mobile-button svg{fill:#FFF;margin-inline-end:0}.draft-notification{pointer-events:none;transform:scale(0);transition:transform ease-in-out 120ms;transform-origin:50% 50%}.draft-notification.visible{transform:scale(1)}.page-style.editor{padding:0 !important}.page-content{width:100%;max-width:840px;margin:0 auto;overflow-wrap:break-word}.page-content .align-left{text-align:left}.page-content img.align-left,.page-content table.align-left{float:left !important;margin:6px 16px 16px 0}.page-content .align-right{text-align:right !important}.page-content img.align-right,.page-content table.align-right{float:right !important;margin:6px 0 6px 12px}.page-content .align-center{text-align:center}.page-content img.align-center{display:block}.page-content img.align-center,.page-content table.align-center{margin-left:auto;margin-right:auto}.page-content img{max-width:100%;height:auto}.page-content h1,.page-content h2,.page-content h3,.page-content h4,.page-content h5,.page-content h6,.page-content pre{clear:left}.page-content hr{clear:both;margin:16px 0}.page-content table{hyphens:auto;table-layout:fixed;max-width:100%;height:auto !important}.page-content ins,.page-content del{text-decoration:none}.page-content ins{background:#dbffdb}.page-content del{background:#FFECEC}.page-content.page-revision pre code{white-space:pre-wrap}.pointer-container{position:relative;display:none;left:0;z-index:10}.pointer{border:1px solid #CCC;border-color:#ccc;display:flex;align-items:center;justify-items:center;padding:12px 12px;border-radius:4px;box-shadow:0 0 12px 1px rgba(0,0,0,0.1);position:absolute;top:-60px;background-color:#fff;width:275px;z-index:55}html.dark-mode .pointer{border-color:#000}html.dark-mode .pointer{background-color:#333}.pointer.is-page-editable{width:328px}.pointer:before{position:absolute;left:50%;bottom:-9px;width:16px;height:16px;margin-inline-start:-8px;content:'';display:block;transform:rotate(45deg);transform-origin:50% 50%;border-block-end:1px solid #CCC;border-inline-end:1px solid #CCC;z-index:56;background-color:#fff;border-color:#ccc}html.dark-mode .pointer:before{background-color:#333}html.dark-mode .pointer:before{border-color:#000}.pointer input,.pointer button,.pointer a{position:relative;border-radius:0;height:28px;font-size:12px;vertical-align:top;padding:5px 16px}.pointer input{background-color:#FFF;border:1px solid #DDD;border-color:#ddd;color:#666;width:172px;z-index:40;padding:5px 10px}html.dark-mode .pointer input{border-color:#000}.pointer span.icon{fill:#444;cursor:pointer;user-select:none;display:inline-block;line-height:1}.pointer .input-group .button{line-height:1;margin:0 0 0 -4px;box-shadow:none}.pointer a.button{margin:0}.pointer .svg-icon{width:1.2em;height:1.2em}.pointer .button{border-color:#ddd}html.dark-mode .pointer .button{border-color:#000}.floating-toolbox{border:1px solid #DDD;background-color:#fff;border-color:#DDD;right:64px;width:48px;overflow:hidden;align-items:stretch;flex-direction:row;display:flex;transition:width ease-in-out 180ms;margin-top:-1px;min-height:0}html.dark-mode .floating-toolbox{background-color:#222}html.dark-mode .floating-toolbox{border-color:#000}.floating-toolbox.open{width:480px}.floating-toolbox [toolbox-toggle] svg{transition:transform ease-in-out 180ms}.floating-toolbox [toolbox-toggle]{transition:background-color ease-in-out 180ms}.floating-toolbox.open [toolbox-toggle]{background-color:rgba(255,0,0,0.29)}.floating-toolbox.open [toolbox-toggle] svg{transform:rotate(180deg)}.floating-toolbox>div{flex:1;position:relative}.floating-toolbox .tabs{display:block;border-inline-end:1px solid #DDD;border-color:#ddd;width:48px;flex:0 1 auto}html.dark-mode .floating-toolbox .tabs{border-color:#000}.floating-toolbox .tabs svg{padding:0;margin:0}.floating-toolbox .tabs>button{color:rgba(0,0,0,0.5);display:block;cursor:pointer;padding:12px 16px;font-size:16px;line-height:1.6;border-bottom:1px solid rgba(255,255,255,0.3)}html.dark-mode .floating-toolbox .tabs>button{color:rgba(255,255,255,0.5)}.floating-toolbox.open .tabs>button.active{color:#444;background-color:rgba(0,0,0,0.1)}html.dark-mode .floating-toolbox.open .tabs>button.active{color:#EEE}.floating-toolbox div[toolbox-tab-content]{padding-bottom:45px;display:flex;flex:1;flex-direction:column;min-height:0;overflow-y:scroll}.floating-toolbox h4{font-size:24px;margin:16px 0 0 0;padding:0 24px 12px 24px}.floating-toolbox .tags input{max-width:100%;width:100%;min-width:50px}.floating-toolbox .tags td,.floating-toolbox .inline-start-table>div>div>div{padding-inline-end:12px;padding-top:12px;position:relative}.floating-toolbox .handle{user-select:none;cursor:move;fill:#999}.floating-toolbox form{display:flex;flex:1;flex-direction:column;overflow-y:scroll}.floating-toolbox table td,.floating-toolbox table th{overflow:visible}[toolbox-tab-content]{display:none}.suggestion-box{position:absolute;background-color:#FFF;border:1px solid #BBB;box-shadow:0 0 4px 1px #CCC;list-style:none;z-index:100;padding:0;margin:0;border-radius:3px}.suggestion-box li{display:block;padding:6px 12px;border-bottom:1px solid #DDD}.suggestion-box li:last-child{border-bottom:0}.suggestion-box li.active{background-color:#EEE}.comments-container h5{color:#888;font-weight:normal;margin-top:0.5em}.comment-editor .CodeMirror,.comment-editor .CodeMirror-scroll{min-height:175px}.mce-floatpanel[aria-label="Insert/edit media"] .mce-open{display:none}.entity-list-item>span:first-child,.icon-list-item>span:first-child,.chapter-expansion>.icon{font-size:0.8rem;width:1.88em;height:1.88em;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:1em;position:relative;overflow:hidden}.entity-list-item>span:first-child svg,.icon-list-item>span:first-child svg,.chapter-expansion>.icon svg{margin:0;bottom:0}.entity-list-item>span:first-child:after,.icon-list-item>span:first-child:after,.chapter-expansion>.icon:after{content:'';position:absolute;background-color:currentColor;opacity:0.2;left:0;top:0;width:100%;height:100%}.entity-chip{display:inline-block;align-items:center;justify-content:center;text-align:center;font-size:0.9em;border-radius:3px;position:relative;overflow:hidden;padding:6px 12px;fill:currentColor;opacity:0.85;transition:opacity ease-in-out 120ms}.entity-chip:after{content:'';position:absolute;background-color:currentColor;opacity:0.15;left:0;top:0;width:100%;height:100%}.entity-chip:hover{text-decoration:none;opacity:1}html,body{background-color:#FFF}body{font-family:'DejaVu Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", "Oxygen", "Ubuntu", "Roboto", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;margin:0;padding:0}table{border-spacing:0;border-collapse:collapse}.page-content{overflow:hidden}pre{padding-left:12px}pre:after{display:none}pre code{white-space:pre-wrap}
@@ -36,57 +36,58 @@
 
 <div class="page-content">
 
-    <h1 style="font-size: 4.8em">Deepspeech avec Tensorflow</h1>
+    <h1 style="font-size: 4.8em">Deepspeech with Tensorflow</h1>
 
-    <p>Installation et configuration avec Ansible
+    <p>Installation and configuration with Ansible
 - Deepspeech 0.5.1 &amp; Tensorflow 1.13.1
 - Deepspeech 0.7.0-alpha.3 &amp; Tensorflow 1.15.0</p>
 
             <ul class="contents">
-                            <li><a href="#page-1">Introduction</a></li>
-                                            <li><a href="#page-2">Installation</a></li>
-                                            <li><a href="#page-3">Déploiement</a></li>
-                                            <li><a href="#page-12">Bundle</a></li>
-                                            <li><a href="#chapter-1">Problèmes survenues</a></li>
+                            <li><a href="#page-17">Introduction</a></li>
+                                            <li><a href="#page-18">Installation</a></li>
+                                            <li><a href="#page-19">Deployment</a></li>
+                                            <li><a href="#page-20">Bundle</a></li>
+                                            <li><a href="#chapter-3">Issues</a></li>
                                     <ul>
-                                                    <li><a href="#page-5">Incident #1 - Tensorflow compilé avec AVX</a></li>
-                                                    <li><a href="#page-6">Incident #2 - Numpy retourne une erreur</a></li>
-                                                    <li><a href="#page-7">Incident #3 - Aucun `ds_ctcdecoder`</a></li>
-                                                    <li><a href="#page-8">Incident #4 - kenlm retourne une erreur</a></li>
-                                                    <li><a href="#page-13">Incident #5 - version tensorflow compilée localement</a></li>
+                                                    <li><a href="#page-21">Issue #1 - Tensorflow built with AVX</a></li>
+                                                    <li><a href="#page-22">Issue #2 - Numpy returns an error</a></li>
+                                                    <li><a href="#page-23">Issue #3 - No `ds_ctcdecoder`</a></li>
+                                                    <li><a href="#page-24">Issue #4 - kenlm returns an error</a></li>
+                                                    <li><a href="#page-25">Issue #5 - Tensorflow built locally</a></li>
                                             </ul>
                                     </ul>
     
             <div class="page-break"></div>
-        <h1 id="page-1">Introduction</h1>
+        <h1 id="page-17">Introduction</h1>
 
-                    <h2 id="bkmrk-objectifs">Objectifs</h2>
-<p id="bkmrk-d%C3%A9ployer-deepspeech-">Déployer <em><strong>DeepSpeech</strong></em> et <em><strong>Tensorflow</strong></em> sur un serveur <em><strong>Ubuntu 18.04</strong></em> qui ne supporte <em>pas AVX et SSE</em>. De plus, le training se fait uniquement avec le <em>CPU</em>.</p>
-<h2 id="bkmrk-mat%C3%A9riel-requis">Matériel requis</h2>
-<ul id="bkmrk-un-serveur-avec-ubun">
-<li>Un serveur avec Ubuntu 18.04 (VM ou Physique)</li>
-<li>Minimum 12GB de mémoire vive (RAM)</li>
-<li>Minimum 8 Coeurs (<em>Les tests ont été effectués avec ce CPU : Intel(R) Xeon(R) CPU L5520  @ 2.27GHz</em>)</li>
+                    <h2 id="bkmrk-goals">Goals</h2>
+<p id="bkmrk-deploy-deepspeech-an">Deploy Deepspeech and Tensorflow on Ubuntu 18.04 without AVX and/or SSE support.<br>
+Also, the server uses only the CPU.</p>
+<h2 id="bkmrk-requirements">Requirements</h2>
+<ul id="bkmrk-a-server-with-ubuntu">
+<li>A server with Ubuntu 18.04 installed (VM or physical)</li>
+<li>Minimum of 12GB of RAM</li>
+<li>Minimum of 8 cores (The tests have been done with : Intel(R) Xeon(R) CPU L5520 @ 2.27GHz)</li>
 </ul>
-<blockquote id="bkmrk-le-serveur-physique-">
-<p>Le serveur physique utilisé est : "HP ProLiant DL160 G6" avec oVirt comme hyperviseur.<br>
--- <em>La VM utilisée a 16GB de RAM et 8 Coeurs le disque est un SSD avec 30GB</em></p>
+<blockquote id="bkmrk-the-physical-server-">
+<p>The physical server is a "HP ProLiant DL160 G6" with oVirt as hypervisor.<br>
+-- The VM used for testing has 16GB of RAM and 8 cores with an SSD of 30GB.</p>
 </blockquote>
-<h2 id="bkmrk-les-scripts">Les scripts</h2>
-<p id="bkmrk-disponible-sur-githu">Disponible sur Github : <a href="https://github.com/studiowebux/deepspeech" target="_blank">Github Deepspeech</a></p>
+<h2 id="bkmrk-scripts">Scripts</h2>
+<p id="bkmrk-available-on-github-">Available on Github : <a href="https://github.com/studiowebux/deepspeech" target="_blank">Github Deepspeech</a></p>
         
             <div class="page-break"></div>
-        <h1 id="page-2">Installation</h1>
+        <h1 id="page-18">Installation</h1>
 
-                    <h2 id="bkmrk-objectif">Objectif</h2>
-<p id="bkmrk-pr%C3%A9parer-l%27environne">Préparer l'environnement pour installer DeepSpeech et Tensorflow sur Ubuntu 18.04</p>
-<h2 id="bkmrk-%C3%89tape-1---d%C3%A9finir-la">Étape 1 - Définir la version à déployer</h2>
-<table id="bkmrk-version-mozilla%2Ftens">
+                    <h2 id="bkmrk-goal">Goal</h2>
+<p id="bkmrk-prepare-the-environm">Prepare the environment to deploy Deepspeech and Tensorflow on Ubuntu 18.04</p>
+<h2 id="bkmrk-step-1---define-whic">Step 1 - Define which version to deploy</h2>
+<table id="bkmrk-mozilla%2Ftensorflow-v">
 <thead><tr>
-<th>Version Mozilla/Tensorflow</th>
-<th>Version Mozilla/DeepSpeech</th>
-<th>Version Bazel</th>
-<th>Testé</th>
+<th>Mozilla/Tensorflow Version</th>
+<th>Mozilla/DeepSpeech Version</th>
+<th>Bazel Version</th>
+<th>Tesed</th>
 <th>YAML</th>
 </tr></thead>
 <tbody>
@@ -94,24 +95,24 @@
 <td>r1.13</td>
 <td>tags/v0.5.1</td>
 <td>0.19.1</td>
-<td>OUI</td>
+<td>YES</td>
 <td>Main.yaml</td>
 </tr>
 <tr>
 <td>r1.15</td>
 <td>tags/v0.7.0-alpha.3</td>
 <td>0.24.1</td>
-<td>OUI</td>
+<td>YES</td>
 <td>Main_v2.yaml</td>
 </tr>
 </tbody>
 </table>
-<blockquote id="bkmrk-notez-que-seulement-">
-<p>Notez que seulement ces versions ont été testées.</p>
+<blockquote id="bkmrk-note%2C-only-these-ver">
+<p>NOTE, only these versions have been tested.</p>
 </blockquote>
-<p id="bkmrk-selon-la-version-cho">Selon la version choisie, vous devez vous assurer d'avoir toutes les dépendances.</p>
-<blockquote id="bkmrk-elles-sont-disponibl">
-<p>Elles sont disponibles directement dans le github</p>
+<p id="bkmrk-based-on-the-chosen-">based on the chosen version, you must have these dependencies</p>
+<blockquote id="bkmrk-they-are-available-d">
+<p>They are available directly in the github</p>
 </blockquote>
 <h3 id="bkmrk-deepspeech-v0.5.1-%2B-">DeepSpeech V0.5.1 + Tensorflow R1.13</h3>
 <ul id="bkmrk-bazel_0.19.1-linux-x">
@@ -128,67 +129,66 @@
 <li>kenlm.tar</li>
 </ul>
 <h3 id="bkmrk-bazel">Bazel</h3>
-<p id="bkmrk-pour-connaitre-quell">Pour connaitre quelles versions sont compatible avec votre version de tensorflow,</p>
-<p id="bkmrk-par-exemple%2C-pour-mo">Par exemple, pour <em>Mozilla/Tensorflow R1.13</em></p>
+<p id="bkmrk-to-know-which-versio">To know which versions are compatible with the tensorflow version,</p>
+<p id="bkmrk-for-example-with-moz">For example with <em>Mozilla/Tensorflow R1.13</em></p>
 <pre id="bkmrk-cat-%2Fsrv%2Ftensorflow%2F"><code class="language-bash">cat /srv/tensorflow/configure.py | grep check_bazel_version
 def check_bazel_version(min_version, max_version):
   check_bazel_version('0.19.0', '0.21.0')
 </code></pre>
-<p id="bkmrk-en-bas-de-cette-page">En bas de cette page, vous pouvez aussi trouver l'information : <a href="https://www.tensorflow.org/install/source" target="_blank">Tensorflow Build From Source</a></p>
-<h2 id="bkmrk-%C3%89tape-2---installer-">Étape 2 - Installer les outils sur la machine de déploiement (Contrôleur Ansible)</h2>
+<p id="bkmrk-at-the-bottom-of-thi">At the bottom of this page, you can also find the information : <a href="https://www.tensorflow.org/install/source" target="_blank">Tensorflow Build From Source</a></p>
+<h2 id="bkmrk-step-2---install-too">Step 2 - Install tools on the deployment machine (ansible controller)</h2>
 <h3 id="bkmrk-ansible">Ansible</h3>
-<p id="bkmrk-le-logiciel-ansible-">Le logiciel Ansible est utilisé pour déployer le tout,</p>
-<p id="bkmrk-voici-le-lien-pour-l">Voici le lien pour la documentation officiel pour l'installer : <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-macos" target="_blank">Installation Ansible</a></p>
-<p id="bkmrk-pour-valider-que-l%27i">Pour valider que l'installation s'est effectuée correctement, lancer cette commande:</p>
+<p id="bkmrk-ansible-is-used-to-d">Ansible is used to deploy the whole stack,</p>
+<p id="bkmrk-the-official-documen">The official documentation : <a href="https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html" target="_blank">Ansible Installation</a></p>
+<p id="bkmrk-to-check-if-the-inst">To check if the installation has been done successfully, launch these commands :</p>
 <pre id="bkmrk-ansible---version-an"><code class="language-bash">ansible --version
 ansible-playbook --version
 </code></pre>
 <h3 id="bkmrk-git">Git</h3>
-<p id="bkmrk-installer-git-sur-vo">Installer Git sur votre machine,
-voici le lien pour l'installer : <a href="https://git-scm.com" target="_blank">Installation Git</a></p>
-<p id="bkmrk-pour-valider-que-l%27i-0">Pour valider que l'installation s'est effectuée correctement, lancer cette commande:</p>
+<p id="bkmrk-official-link-to-ins">Official link to install git on your system : <a href="https://git-scm.com" target="_blank">Git Installation</a></p>
+<p id="bkmrk-to-check-if-the-inst-0">To check if the installation has been done successfully, launch this command :</p>
 <pre id="bkmrk-git---version"><code class="language-bash">git --version
 </code></pre>
-<h3 id="bkmrk-cl%C3%A9-ssh">Clé SSH</h3>
-<p id="bkmrk-il-est-fortement-rec">Il est fortement recommandé d'utiliser une clé SSH pour se connecter au serveur,</p>
-<p id="bkmrk-pour-g%C3%A9n%C3%A9rer-une-cl%C3%A9">Pour générer une clé privée, lancer cette commande et suiver les instructions de la console,</p>
+<h3 id="bkmrk-ssh-key">SSH Key</h3>
+<p id="bkmrk-this-is-recommanded-">This is recommanded to use an SSH key to establish the session.</p>
+<p id="bkmrk-to-generate-an-ssh-k">To generate an SSH key launch this command and follow the instructions on the console,</p>
 <pre id="bkmrk-ssh-keygen"><code class="language-bash">ssh-keygen
 </code></pre>
-<p id="bkmrk-pour-copier-votre-cl">Pour copier votre clé publique sur le serveur, lancer cette commande:</p>
+<p id="bkmrk-to-copy-your-public-">To copy your public key to the server, launch this command :</p>
 <pre id="bkmrk-ssh-copy-id-user%401.2"><code class="language-bash">ssh-copy-id user@1.2.3.4
 </code></pre>
-<blockquote id="bkmrk-remplacer-le-%27user%27-">
-<p>Remplacer le 'user' et '1.2.3.4' pour vos informations</p>
+<blockquote id="bkmrk-replace-%27user%27-and-%27">
+<p>Replace 'user' and '1.2.3.4' for your server information</p>
 </blockquote>
-<p id="bkmrk-de-cette-mani%C3%A8re%2C-an">De cette manière, Ansible va pouvoir se connecter automatiquement au serveur en utilisant votre clé privée.</p>
-<h2 id="bkmrk-r%C3%A9sum%C3%A9">Résumé</h2>
-<ol id="bkmrk-votre-poste-de-d%C3%A9plo">
-<li>Votre poste de déploiement a tous les outils.</li>
-<li>Vous avez toutes les dépendances pour lancer le script de déploiement selon la version désirée.</li>
-</ol>
+<p id="bkmrk-using-the-ssh-key%2C-a">using the SSH key, ansible will be able to connect automatically to the server using the private key stored on the controller.</p>
+<h2 id="bkmrk-summary">Summary</h2>
+<ul id="bkmrk-your-deployment-mach">
+<li>Your deployment machine is configured with all the tools.</li>
+<li>You have all dependencies to launch the deployment script based on the chosen version.</li>
+</ul>
         
             <div class="page-break"></div>
-        <h1 id="page-3">Déploiement</h1>
+        <h1 id="page-19">Deployment</h1>
 
-                    <h2 id="bkmrk-objectif">Objectif</h2>
-<p id="bkmrk-lancer-le-script-%22ma">Lancer le script "Main.yaml" pour déployer DeepSpeech et Tensorflow sur votre système.</p>
-<h2 id="bkmrk-commandes">Commandes</h2>
-<p id="bkmrk-vous-allez-%C3%AAtre-invi">Vous allez être invité à entrer le mot de passe SUDO (<code>--ask-become</code>)</p>
-<h3 id="bkmrk-deepspeech-0.5.1-et-">DeepSpeech 0.5.1 et Tensorflow 1.13 :</h3>
+                    <h2 id="bkmrk-goal">Goal</h2>
+<p id="bkmrk-launch-the-script-na">Launch the script named "Main.yaml" to deploy thee whole stack on your server.</p>
+<h2 id="bkmrk-commands">Commands</h2>
+<p id="bkmrk-the-sudo-password-wi">The SUDO password will be required (<code>--ask-become</code>)</p>
+<h3 id="bkmrk-deepspeech-0.5.1-and">DeepSpeech 0.5.1 and Tensorflow 1.13 :</h3>
 <pre id="bkmrk-ansible-playbook--i-"><code class="language-bash">ansible-playbook -i 1.2.3.4, Scripts/Main.yaml --extra-vars='{"tensorflow_version": "r1.13","DeepSpeech_version": "tags/v0.5.1","bazel_version": "0.19.1"}'--ask-become
 </code></pre>
-<h3 id="bkmrk-deepspeech-0.7.0-alp">DeepSpeech 0.7.0-alpha.3 et Tensorflow 1.15 :</h3>
+<h3 id="bkmrk-deepspeech-0.7.0-alp">DeepSpeech 0.7.0-alpha.3 and Tensorflow 1.15 :</h3>
 <pre id="bkmrk-ansible-playbook--i--0"><code class="language-bash">ansible-playbook -i 1.2.3.4, Scripts/Main.yaml --ask-become
 --extra-vars='{"tensorflow_version": "r1.15","DeepSpeech_version": "tags/v0.7.0-alpha.3","bazel_version": "0.24.1"}'
 </code></pre>
-<h2 id="bkmrk-les-scripts">Les scripts</h2>
-<p id="bkmrk-il-y-a-au-total-10-s">Il y a au total 10 scripts (incluant 1 optionel)</p>
-<ol id="bkmrk-le-premier-script-%28i">
+<h2 id="bkmrk-scripts-definition">Scripts definition</h2>
+<p id="bkmrk-there-is-10-scripts-">There is 10 scripts (including 1 optional)</p>
+<ol id="bkmrk-the-first-one-%28insta">
 <li>
-<p>Le premier script (<code>Install.yaml</code>) installe toutes les dépendances pour effectuer le déploiement.</p>
+<p>The first one (<code>Install.yaml</code>) installs the required dependencies to execute the deployment.</p>
 </li>
 <li>
-<p>les 4 prochains scripts installent les dépendances pour utiliser DeepSpeech et compiler Tensorflow.</p>
+<p>The next 4 scripts, copy and install the dependencies to build and use deepspeech and tensorflow.</p>
 <ol>
 <li><code>SOX.yaml</code></li>
 <li><code>KENLM.yaml</code></li>
@@ -197,13 +197,13 @@ voici le lien pour l'installer : <a href="https://git-scm.com" target="_blank">I
 </ol>
 </li>
 <li>
-<p>Le sixième script (<code>DEEPSPEECH.yaml</code>) clone le repository de <em>Mozilla/DeepSpeech</em>, change la branche pour la version désirée et télécharge les fichiers avec git-lfs (<em>environ 1.7GB pour la version 0.5.1 &amp; 700MB pour la version 0.7.0-alpha.3</em>)</p>
+<p>The sixth script (<code>DEEPSPEECH.yaml</code>) clone the <em>Mozilla/DeepSpeech</em> repository, then checkout the branch to the chosen version and download the files with git-lfs (<em>approximately 1.7GB for version 0.5.1 &amp; 700MB for version 0.7.0-alpha.3</em>)</p>
 </li>
 <li>
-<p>Le septième script (<code>TENSORFLOW.yaml</code>) clone le repository de <em>Mozilla/tensorflow</em>, change la branche pour la version désirée, puis lance les commandes pour compiler le tout. Celui-ci utilise un autre script (<code>answer_tensorflow.yaml</code>) pour répondre automatiquement aux questions posées lors de la configuration.</p>
+<p>The seventh script (<code>TENSORFLOW.yaml</code>) clone the <em>Mozilla/tensorflow</em> repository, checkout the branch to the chosen version, then launch these commands to build tensorflow and deepspeech. This script calls an another one (<code>answer_tensorflow.yaml</code>) to answer automatically to the question asked during the configuration.</p>
 </li>
 <li>
-<p>le huitième script (<code>TS_DEEPSPEECH.yaml</code>) compile et installe les fichiers dans le répertoire <code>DeepSpeech/native_client/</code>,</p>
+<p>The eighth script (<code>TS_DEEPSPEECH.yaml</code>) build and install the files within <code>DeepSpeech/native_client/</code>,</p>
 <ul>
 <li><em>Javascript</em></li>
 <li><em>ctcdecode</em></li>
@@ -212,10 +212,10 @@ voici le lien pour l'installer : <a href="https://git-scm.com" target="_blank">I
 </ul>
 </li>
 <li>
-<p>Le dernier script (<code>Test.yaml</code>), ce script lance simplement le démo qui est fourni avec DeepSpeech. Celui-ci doit se terminer sans erreur.</p>
+<p>The last script (<code>Test.yaml</code>), it launches the demo included in the deepspeech directory. That test must complete without errors.</p>
 </li>
 </ol>
-<p id="bkmrk-vous-pouvez-facileme">Vous pouvez facilement lancer toutes les commandes manuellement:</p>
+<p id="bkmrk-you-can-execute-each">You can execute each command manually:</p>
 <pre id="bkmrk-ansible-playbook--i--1"><code class="language-bash">ansible-playbook -i 1.2.3.4, Scripts/Install.yaml --ask-become
 ansible-playbook -i 1.2.3.4, Scripts/SOX.yaml --ask-become
 ansible-playbook -i 1.2.3.4, Scripts/KENLM.yaml --ask-become --extra-vars '{"cores":8}'
@@ -226,21 +226,21 @@ ansible-playbook -i 1.2.3.4, Scripts/TENSORFLOW.yaml --extra-vars '{"tensorflow_
 ansible-playbook -i 1.2.3.4, Scripts/TS_DEEPSPEECH.yaml --extra-vars '{"cores":8}' --ask-become
 ansible-playbook -i 1.2.3.4, Scripts/Test.yaml --ask-become
 </code></pre>
-<p id="bkmrk-pour-installer-la-ve">Pour installer la version de tensorflow disponible en ligne,</p>
-<blockquote id="bkmrk-il-est-pr%C3%A9f%C3%A9rable-d%27">
-<p>Il est préférable d'utiliser la version compilée pour votre système.</p>
+<p id="bkmrk-to-install-the-tenso">To install the tensorflow version available online,</p>
+<blockquote id="bkmrk-the-recommended-way-">
+<p>The recommended way is to use the version compiled during the deployment.</p>
 </blockquote>
 <pre id="bkmrk-ansible-playbook--i--2"><code class="language-bash">ansible-playbook -i 1.2.3.4, Scripts/FIX_TENSORFLOW.yaml --extra-vars '{"tensorflow_version":"r1.13"}' --ask-become
 </code></pre>
 <h2 id="bkmrk-notes">Notes</h2>
-<ul id="bkmrk-l%27%C3%A9tape-pour-compile">
-<li>L'étape pour <em><strong>Compiler Tensorflow</strong></em> prend beaucoup de temps, (si possible, ajoutez plus de CPU pour accélérer le processus, <em>par exemple, avec 12 Coeurs/Threads de 2.2 GHz ça prend environ 1h15</em>)</li>
-<li>Pour voir la progression ou connaitre l'état du système, vous pouvez ouvrir une session SSH et lancer la commande <code>top</code> ou <code>ps -aec</code> pour voir se qui roule sur le système. Il est aussi posible d'afficher le output du processus utilisé, <code>cat /proc/[process ID du process nommé bazel-real]/fd/2</code>
+<ul id="bkmrk-the-build-tensorflow">
+<li>The <strong>Build Tensorflow</strong> step takes a lot of time, (if possible, add more CPU to speed up the process, <em>for example, with 12 cores/threads at 2.2GHzm it takes approximateely 1H15</em>)</li>
+<li>To see the progression or to know the system state, you can open an SSH session and launch some commands, like <code>top</code> or <code>ps -aec</code> to see what is going on. It is also possible to print the output of the process with this command, <code>cat /proc/[process ID of bazel-real]/fd/2</code>
 </li>
 </ul>
         
             <div class="page-break"></div>
-        <h1 id="page-12">Bundle</h1>
+        <h1 id="page-20">Bundle</h1>
 
                     <h2 id="bkmrk-deepspeech-v0.5.1-%26-">DeepSpeech v0.5.1 &amp; Mozilla/TensorFlow v1.13.1</h2>
 <pre id="bkmrk-tgingras%40javr%3A%7E%24-dee"><code class="language-bash">tgingras@javr:~$ deepspeech 
@@ -268,32 +268,32 @@ DeepSpeech  0.7.0-alpha.3
 </code></pre>
         
             <div class="page-break"></div>
-        <h1 id="chapter-1">Problèmes survenues</h1>
+        <h1 id="chapter-3">Issues</h1>
 
-                    <p>Voici quelques problèmes survenues lors de l&#039;installation</p>
+                    <p>Some issues during the deployment</p>
 
                                                 <div class="page-break"></div>
-                    <div class="chapter-hint">Problèmes survenues</div>
-                    <h1 id="page-5">Incident #1 - Tensorflow compilé avec AVX</h1>
-                    <blockquote id="bkmrk-le-syst%C3%A8me-ne-suppor">
-<p>Le système ne supporte pas cette fonctionnalité (AVX, ni SSE)</p>
+                    <div class="chapter-hint">Issues</div>
+                    <h1 id="page-21">Issue #1 - Tensorflow built with AVX</h1>
+                    <blockquote id="bkmrk-the-system-doesn%27t-s">
+<p>The system doesn't support AVX neither SSE</p>
 </blockquote>
 <h3 id="bkmrk-solution-%231">Solution #1</h3>
-<p id="bkmrk-utiliser-la-version-">Utiliser la version compiler par le script <code>TENSORFLOW.yaml</code></p>
-<p id="bkmrk-pour-connaitre-les-v">Pour connaitre les versions de bazel supportées,</p>
+<p id="bkmrk-use-the-version-buil">Use the version built by the script <code>TENSORFLOW.yaml</code></p>
+<p id="bkmrk-to-know-which-versio">To know which version of bazel to use,</p>
 <pre id="bkmrk-cat-%2Fsrv%2Ftensorflow%2F"><code class="language-bash">cat /srv/tensorflow/configure.py | grep check_bazel_version
 </code></pre>
 <h3 id="bkmrk-solution-%232">Solution #2</h3>
-<p id="bkmrk-utiliser-si-possible">Utiliser si possible une version disponible en ligne correspondant à votre besoin, <a href="https://github.com/yaroslavvb/tensorflow-community-wheels/issues" target="_blank">Github</a></p>
-<p id="bkmrk-cette-solution-est-c">Cette solution est celle appliquée dans le script <code>FIX_TENSORFLOW.yaml</code></p>
+<p id="bkmrk-use%2C-if-available%2C-a">Use, if available, a version built by the community, <a href="https://github.com/yaroslavvb/tensorflow-community-wheels/issues" target="_blank">Github</a></p>
+<p id="bkmrk-this-solution-is-scr">This solution is scripted in this file : <code>FIX_TENSORFLOW.yaml</code></p>
 <p id="bkmrk-tensorflow-1.13.1-cp"><a href="https://github.com/Tzeny/tensorflowbuilds/raw/master/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl" target="_blank">tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl</a> -
 <a href="https://github.com/yaroslavvb/tensorflow-community-wheels/issues/111" target="_blank">Source</a></p>
-<p id="bkmrk-pour-installer-le-pa">Pour installer le package,</p>
+<p id="bkmrk-to-install-the-packa">To install the package,</p>
 <pre id="bkmrk-wget-https%3A%2F%2Fgithub."><code class="language-bash">wget https://github.com/Tzeny/tensorflowbuilds/raw/master/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl -O /tmp/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
 pip3 uninstall tensorflow
 pip3 install /tmp/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl
 </code></pre>
-<h2 id="bkmrk-erreur">Erreur</h2>
+<h2 id="bkmrk-error">Error</h2>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Fdeeps"><code class="language-bash">root@javr:/srv/DeepSpeech# ./bin/run-ldc93s1.sh
 + [ ! -f DeepSpeech.py ]
 + [ ! -f data/ldc93s1/ldc93s1.csv ]
@@ -314,9 +314,9 @@ Progress |######################################################################
 Aborted (core dumped)
 </code></pre>
                                     <div class="page-break"></div>
-                    <div class="chapter-hint">Problèmes survenues</div>
-                    <h1 id="page-6">Incident #2 - Numpy retourne une erreur</h1>
-                    <p id="bkmrk-la-version-de-numpy-">La version de numpy qui est installé n'est pas assez récente. il suffit de mettre à jour numpy à la version la plus récente,</p>
+                    <div class="chapter-hint">Issues</div>
+                    <h1 id="page-22">Issue #2 - Numpy returns an error</h1>
+                    <p id="bkmrk-the-numpy-version-in">The numpy version installed is too old, simply upgrade numpy to resolve this issue</p>
 <pre id="bkmrk-pip3-install---upgra"><code class="language-bash">pip3 install --upgrade numpy
 </code></pre>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Fdeeps"><code class="language-bash">root@javr:/srv/DeepSpeech# pip3 install --upgrade numpy
@@ -330,7 +330,7 @@ Installing collected packages: numpy
       Successfully uninstalled numpy-1.15.4
 Successfully installed numpy-1.18.2
 </code></pre>
-<h3 id="bkmrk-erreur">Erreur</h3>
+<h3 id="bkmrk-error">Error</h3>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Fdeeps-0"><code class="language-bash">root@javr:/srv/DeepSpeech# ./bin/run-ldc93s1.sh
 + [ ! -f DeepSpeech.py ]
 + [ ! -f data/ldc93s1/ldc93s1.csv ]
@@ -353,18 +353,18 @@ ImportError: numpy.core.umath failed to import
 Aborted (core dumped)
 </code></pre>
                                     <div class="page-break"></div>
-                    <div class="chapter-hint">Problèmes survenues</div>
-                    <h1 id="page-7">Incident #3 - Aucun `ds_ctcdecoder`</h1>
-                    <p id="bkmrk-ce-module-doit-%C3%AAtre-">Ce module doit être compilé, cette tâche est effectuée dans le script <code>TS_DEEPSPEECH.yaml</code></p>
-<blockquote id="bkmrk-cette-erreur-est-sur">
-<p>Cette erreur est survenue lors des tests manuels, le script n'avait pas été exécuté au moment de l'erreur.</p>
+                    <div class="chapter-hint">Issues</div>
+                    <h1 id="page-23">Issue #3 - No `ds_ctcdecoder`</h1>
+                    <p id="bkmrk-this-module-must-be-">This module must be built, this task is done in <code>TS_DEEPSPEECH.yaml</code></p>
+<blockquote id="bkmrk-this-error-occured%2C-">
+<p>This error occured, because the script was run manually, and the script hasn't been executed at the moment of the error.</p>
 </blockquote>
-<p id="bkmrk-pour-installer-le-mo">Pour installer le module manuellement,</p>
+<p id="bkmrk-to-install-the-modul">To install the module manually,</p>
 <pre id="bkmrk-cd-%2Fsrv%2Fdeepspeech%2Fn"><code class="language-bash">cd /srv/DeepSpeech/native_client/ctcdecode
 make bindings NUM_PROCESSES=8
 pip3 install dist/*.whl
 </code></pre>
-<h2 id="bkmrk-erreur">Erreur</h2>
+<h2 id="bkmrk-error">Error</h2>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Fdeeps"><code class="language-bash">root@javr:/srv/DeepSpeech# ./bin/run-ldc93s1.sh
 + [ ! -f DeepSpeech.py ]
 + [ ! -f data/ldc93s1/ldc93s1.csv ]
@@ -391,25 +391,25 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'ds_ctcdecoder'
 </code></pre>
                                     <div class="page-break"></div>
-                    <div class="chapter-hint">Problèmes survenues</div>
-                    <h1 id="page-8">Incident #4 - kenlm retourne une erreur</h1>
-                    <p id="bkmrk-cette-erreur-est-cau">Cette erreur est causée par <code>git-lfs</code>. Lorsque le repository de <em>Mozilla/DeepSpeech</em> a été cloné, les fichiers LFS n'ont pas été téléchargé.</p>
-<blockquote id="bkmrk-cette-erreur-est-sur">
-<p>Cette erreur est survenue lors des tests manuels.</p>
+                    <div class="chapter-hint">Issues</div>
+                    <h1 id="page-24">Issue #4 - kenlm returns an error</h1>
+                    <p id="bkmrk-this-error-is-caused">This error is caused by <code>git-lfs</code>. The installation of that package wasn't done properly, then the LFS files were not downloaded.</p>
+<blockquote id="bkmrk-this-error-occured-d">
+<p>This error occured during the manual test.</p>
 </blockquote>
 <h3 id="bkmrk-solution-%231">Solution #1</h3>
-<p id="bkmrk-lancer-les-scripts-c">Lancer les scripts correctement, l'étape pour télécharger les fichiers LFS se trouve dans le script : <code>DEEPSPEECH.yaml</code></p>
+<p id="bkmrk-launch-the-script-co">Launch the script corectly, the LFS step is included in the script : <code>DEEPSPEECH.yaml</code></p>
 <h3 id="bkmrk-solution-%232">Solution #2</h3>
-<p id="bkmrk-lancer-les-commandes">Lancer les commandes suivantes:</p>
-<blockquote id="bkmrk-changer-la-version-d">
-<p>Changer la version du checkout pour votre version</p>
+<p id="bkmrk-launch-these-command">Launch these commands manually :</p>
+<blockquote id="bkmrk-update-the-version-t">
+<p>Update the version to the one you use</p>
 </blockquote>
 <pre id="bkmrk-git-clone-https%3A%2F%2Fgi"><code class="language-bash">git clone https://github.com/mozilla/DeepSpeech.git
 cd /srv/DeepSpeech
 git checkout tags/v0.5.1
 git-lfs pull
 </code></pre>
-<p id="bkmrk-suite-%C3%A0-ce-t%C3%A9l%C3%A9charg">Suite à ce téléchargement, le test est fonctionnel.</p>
+<p id="bkmrk-after-the-download%2C-">After the download, the test is PASS</p>
 <pre id="bkmrk-...-warning%3Atensorfl"><code class="language-bash">...
 WARNING:tensorflow:From /usr/local/lib/python3.6/dist-packages/tensorflow/python/training/saver.py:1266: checkpoint_exists (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
 Instructions for updating:
@@ -424,7 +424,7 @@ WER: 0.000000, CER: 0.000000, loss: 4.539505
  - res: "she had your dark suit in greasy wash water all year"
 --------------------------------------------------------------------------------
 </code></pre>
-<h2 id="bkmrk-erreur">Erreur</h2>
+<h2 id="bkmrk-error">Error</h2>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Fdeeps"><code class="language-bash">root@javr:/srv/DeepSpeech# ./bin/run-ldc93s1.sh
 + [ ! -f DeepSpeech.py ]
 + [ ! -f data/ldc93s1/ldc93s1.csv ]
@@ -493,43 +493,42 @@ first non-empty line was "version https://git-lfs.github.com/spec/v1" not \data\
 Aborted (core dumped)
 </code></pre>
                                     <div class="page-break"></div>
-                    <div class="chapter-hint">Problèmes survenues</div>
-                    <h1 id="page-13">Incident #5 - version tensorflow compilée localement</h1>
-                    <blockquote id="bkmrk-essai-%231-et-%235-sont-">
-<p>Essai #1 et #5 sont PASS</p>
+                    <div class="chapter-hint">Issues</div>
+                    <h1 id="page-25">Issue #5 - Tensorflow built locally</h1>
+                    <blockquote id="bkmrk-attempt-%231-and-%235-ar">
+<p>Attempt #1 and #5 are PASS</p>
 </blockquote>
-<h3 id="bkmrk-essai-%231-%28pass%29">Essai #1 (PASS)</h3>
-<p id="bkmrk-cette-version-foncti">Cette version fonctionne : <a href="https://github.com/yaroslavvb/tensorflow-community-wheels/issues/111" target="_blank">Github</a></p>
-<blockquote id="bkmrk-mais-l%27objectif-est-">
-<p>Mais l'objectif est de build tensorflow depuis les sources</p>
+<h3 id="bkmrk-attempt-%231-%28pass%29">Attempt #1 (PASS)</h3>
+<p id="bkmrk-this-version-is-comp">This version is compatible : <a href="https://github.com/yaroslavvb/tensorflow-community-wheels/issues/111" target="_blank">Github</a></p>
+<blockquote id="bkmrk-but-the-goal-is-to-b">
+<p>But the goal is to build tensorflow from source</p>
 </blockquote>
-<h3 id="bkmrk-essai-%232-%28fail%29">Essai #2 (FAIL)</h3>
-<p id="bkmrk-la-version-de-bazel-">La version de <em>bazel</em> : <strong>0.21.0</strong><br>
-La version de <em>tensorflow</em> : <strong>Mozilla/tensoflow</strong> <em>checkout</em> : <strong>r1.13</strong></p>
-<p id="bkmrk-la-commande-utilis%C3%A9e">la commande utilisée pour compiler:</p>
+<h3 id="bkmrk-attempt-%232-%28fail%29">Attempt #2 (FAIL)</h3>
+<p id="bkmrk-bazel-version-%3A-0.21"><em>bazel</em> version : <strong>0.21.0</strong><br><em>tensorflow</em> version : <strong>Mozilla/tensoflow</strong> <em>checkout</em> : <strong>r1.13</strong></p>
+<p id="bkmrk-launch-this-command%3A">Launch this command:</p>
 <pre id="bkmrk-bazel-build---config"><code class="language-bash">bazel build --config=monolithic -c opt --copt=-O3 --copt="-D_GLIBCXX_USE_CXX11_ABI=0" --copt=-fvisibility=hidden //tensorflow/tools/pip_package:build_pip_package //native_client:libdeepspeech.so //native_client:generate_trie
 </code></pre>
-<h3 id="bkmrk-essai-%233-%28fail%29">Essai #3 (FAIL)</h3>
-<p id="bkmrk-installer-la-version">Installer la version disponible,</p>
+<h3 id="bkmrk-attempt-%233-%28fail%29">Attempt #3 (FAIL)</h3>
+<p id="bkmrk-using-the-%22default%22-">Using the "default" version</p>
 <pre id="bkmrk-pip3-install-tensorf"><code class="language-bash">pip3 install tensorflow==1.13.1
 </code></pre>
-<h4 id="bkmrk-le-r%C3%A9sultat">Le résultat</h4>
+<h4 id="bkmrk-result">result</h4>
 <pre id="bkmrk-tgingras%40javr%3A%2Fsrv%2Fd"><code class="language-bash">tgingras@javr:/srv/DeepSpeech$ ./DeepSpeech.py
 2020-04-20 01:19:24.380911: F tensorflow/core/platform/cpu_feature_guard.cc:37] The TensorFlow library was compiled to use AVX instructions, but these aren't available on your machine.
 Aborted (core dumped)
 </code></pre>
-<h3 id="bkmrk-essai-%234-%28fail%29">Essai #4 (FAIL)</h3>
-<p id="bkmrk-mettre-la-version-de">Mettre la version de bazel à 0.25.2
-Et lancer la commande fournie sur le site de tensorflow</p>
-<blockquote id="bkmrk-l%27erreur-retourn%C3%A9e-%3A">
-<p>L'erreur retournée : la version de bazel doit être entre 0.19.0 et 0.21.0 pour compiler la version de Mozilla/Tensorflow r1.13</p>
+<h3 id="bkmrk-attempt-%234-%28fail%29">Attempt #4 (FAIL)</h3>
+<p id="bkmrk-use-bazel-version-0.">Use bazel version 0.25.2
+then launch the command below,</p>
+<blockquote id="bkmrk-error-returned-%3A-the">
+<p>Error returned : the bazel version must be between 0.19.0 and 0.21.0 to build Mozilla/Tensorflow r1.13</p>
 </blockquote>
 <pre id="bkmrk-bazel-build---config-0"><code class="language-bash">bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 </code></pre>
-<h3 id="bkmrk-essai-%235-%28pass%29">Essai #5 (PASS)</h3>
-<p id="bkmrk-avec-la-version-de-b">Avec la version de bazel 0.19.1, le build et le package ont été installé avec succès</p>
-<p id="bkmrk-lien-pour-bazel-0.19">Lien pour bazel 0.19.1 : <a href="https://github.com/bazelbuild/bazel/releases/download/0.19.1/bazel_0.19.1-linux-x86_64.deb" target="_blank">Github</a></p>
-<p id="bkmrk-voici-les-commandes-">Voici les commandes exécutées:</p>
+<h3 id="bkmrk-attempt-%235-%28pass%29">Attempt #5 (PASS)</h3>
+<p id="bkmrk-using-bazel-version-">Using bazel version 0.19.1, the built and package install were successful.</p>
+<p id="bkmrk-link-for-bazel-0.19.">Link for bazel 0.19.1 : <a href="https://github.com/bazelbuild/bazel/releases/download/0.19.1/bazel_0.19.1-linux-x86_64.deb" target="_blank">Github</a></p>
+<p id="bkmrk-launch-these-command">Launch these commands:</p>
 <pre id="bkmrk-cd-%2Fsrv-wget-https%3A%2F"><code class="language-bash">cd /srv
 wget https://github.com/bazelbuild/bazel/releases/download/0.19.1/bazel_0.19.1-linux-x86_64.deb
 dpkg -i bazel_0.19.1-linux-x86_64.deb
@@ -546,16 +545,16 @@ cd DeepSpeech/
 ./DeepSpeech.py
 ./bin/run-ldc93s1.sh
 </code></pre>
-<blockquote id="bkmrk-la-section-apt-a-%C3%A9t%C3%A9">
-<p>La section <code>apt</code> a été nécessaire, car un conflit de version et package est survenue.</p>
+<blockquote id="bkmrk-the-apt-commands-are">
+<p>the <code>apt</code> commands are required, because there was a conflict with java.</p>
 </blockquote>
 <h4 id="bkmrk-bundle">Bundle</h4>
-<h5 id="bkmrk-version-de-tensorflo">Version de tensorflow</h5>
+<h5 id="bkmrk-tensorflow-version">Tensorflow Version</h5>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Ftenso"><code class="language-bash">root@javr:/srv/tensorflow# git status
 On branch r1.13
 Your branch is up to date with 'origin/r1.13'.
 </code></pre>
-<h5 id="bkmrk-version-de-bazel">Version de bazel</h5>
+<h5 id="bkmrk-bazel-version">Bazel version</h5>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Fdeeps"><code class="language-bash">root@javr:/srv/DeepSpeech# bazel version
 WARNING: --batch mode is deprecated. Please instead explicitly shut down your Bazel server using the command "bazel shutdown".
 Build label: 0.19.1
@@ -613,7 +612,7 @@ Requirement already satisfied: setuptools in /usr/local/lib/python3.6/dist-packa
 Installing collected packages: tensorflow
 Successfully installed tensorflow-1.13.1
 </code></pre>
-<h5 id="bkmrk-lancement-du-d%C3%A9mo-de">Lancement du démo de DeepSpeech</h5>
+<h5 id="bkmrk-launch-the-demo">Launch the demo</h5>
 <pre id="bkmrk-root%40javr%3A%2Fsrv%2Ftenso-0"><code class="language-bash">root@javr:/srv/tensorflow# cd ..
 root@javr:/srv# cd DeepSpeech/
 root@javr:/srv/DeepSpeech# ./DeepSpeech.py
@@ -690,7 +689,7 @@ WER: 0.000000, CER: 0.000000, loss: 3.357677
 --------------------------------------------------------------------------------
 root@javr:/srv/DeepSpeech#
 </code></pre>
-<h2 id="bkmrk-erreur">Erreur</h2>
+<h2 id="bkmrk-error">Error</h2>
 <pre id="bkmrk-tgingras%40javr%3A%2Fsrv%2Fd-0"><code class="language-bash">tgingras@javr:/srv/DeepSpeech$ ./DeepSpeech.py
 /usr/local/lib/python3.6/dist-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
   _np_qint8 = np.dtype([("qint8", np.int8, 1)])
