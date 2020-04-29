@@ -39,23 +39,3 @@
         chdir: "/srv/tensorflow"
       when: "'r1.15' in tensorflow_version"
 
-    - pause:
-        seconds: 30
-
-    ## Reconfigure, I had some issues and it seems to be ok after doing that.
-    - include_tasks: answer_tensorflow.yaml
-
-    - name: Build Tensorflow `build_pip_package`
-      shell: "bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package"
-      args:
-        chdir: "/srv/tensorflow"
-
-    - name: Create /tmp/tensorflow/tensorflow-*.whl
-      shell: "./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow"
-      args:
-        chdir: "/srv/tensorflow"
-
-    - name: Remove default Tensorflow version and Install built version
-      shell: |
-        pip3 uninstall -y tensorflow
-        pip3 install /tmp/tensorflow/*.whl

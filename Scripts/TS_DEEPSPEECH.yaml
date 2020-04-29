@@ -51,3 +51,31 @@
     # version to the latest version (occured with DeepSpeech 0.5.1)
     - name: Upgrade Numpy
       shell: "pip3 install --upgrade numpy"
+
+
+    ## Reconfigure, I had some issues and it seems to be ok after doing that.
+    - include_tasks: answer_tensorflow.yaml
+
+    ## It seems not to work every time (I only succeed one time ... ) 
+    ## Run this command manually directly in the shell along with the `./configure`
+    - name: Build Tensorflow `build_pip_package`
+      shell: "bazel build --config=opt --config=noaws --config=nogcp --config=nohdfs --config=noignite --config=nokafka --config=nonccl //tensorflow/tools/pip_package:build_pip_package"
+      args:
+        chdir: "/srv/tensorflow"
+      ignore_errors: true # Added to avoid blocking the build
+      
+
+    - name: Create /tmp/tensorflow/tensorflow-*.whl
+      shell: "./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow"
+      args:
+        chdir: "/srv/tensorflow"
+      ignore_errors: true # Added to avoid blocking the build
+
+    - name: Remove default Tensorflow version and Install built version
+      shell: |
+        pip3 uninstall -y tensorflow
+        pip3 install /tmp/tensorflow/*.whl
+      ignore_errors: true # Added to avoid blocking the build
+
+    - debug:
+        msg: "If the tasks above have failed please run the commands manually, it will update the tensorflow version to fit your system. It is also possible that the default tensorflow version (the one installed with pip) will be ok for you."

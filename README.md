@@ -65,3 +65,27 @@ ansible-playbook -i 1.2.3.4, Scripts/TENSORFLOW.yaml --extra-vars '{"tensorflow_
 ansible-playbook -i 1.2.3.4, Scripts/TS_DEEPSPEECH.yaml --extra-vars '{"cores":8}' --ask-become
 ansible-playbook -i 1.2.3.4, Scripts/Test.yaml --ask-become
 ```
+
+## Issues
+
+This playbook `TS_DEEPSPEECH.yaml`,
+will maybe return an error at this task : ```Build Tensorflow \`build_pip_package\````
+
+> I've added `ignore_errors` to continue with the testing playbook,
+> if the test is PASS, you can safely ignore this issue.
+
+The solution is to do these commands manually in a SSH console or on the shell directly,
+
+```bash
+cd /srv/tensorflow
+./configure # I answered NO to all questions and use the default options for Python
+
+bazel build --config=opt --config=noaws --config=nogcp --config=nohdfs --config=noignite --config=nokafka --config=nonccl //tensorflow/tools/pip_package:build_pip_package
+
+./bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow
+
+pip3 uninstall -y tensorflow
+pip3 install /tmp/tensorflow/*.whl
+```
+
+If you know the reason why using the ansible Shell module it doesn't work, please let me know, thank you
