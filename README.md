@@ -88,4 +88,4 @@ pip3 uninstall -y tensorflow
 pip3 install /tmp/tensorflow/*.whl
 ```
 
-If you know the reason why using the ansible Shell module it doesn't work, please let me know, thank you
+> If you know the reason why using the ansible Shell module it doesn't work, please let me know, thank you
